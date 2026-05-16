@@ -26,8 +26,8 @@ export default function JuryMembers() {
       id="jury"
       className="bg-loa-black px-6 md:px-10 py-12 md:py-20 h-fit overflow-hidden"
     >
-      <div className="flex flex-col md:flex-row mx-auto items-start md:items-center w-full md:w-fit gap-4 md:gap-8 mb-6">
-        <span className="flex-2 font-display text-loa-yellow text-[15vw] md:text-8xl">
+      <div className="flex flex-col md:flex-row mx-auto items-start  md:items-center w-full md:w-fit gap-4 md:gap-8 mb-6">
+        <span className="flex-2 font-display text-loa-yellow text-[15vw] md:text-8xl leading-20 ">
           <span className="text-[15vw]">JURY</span> <br /> MEMBERS
         </span>
         <p className="flex-1 text-loa-yellow text-base md:text-xl max-w-full md:max-w-60">
@@ -36,7 +36,7 @@ export default function JuryMembers() {
           truly connect.
         </p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-10">
+      <div className="px-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-10 max-w-5xl mx-auto">
         {JURY.map((src, i) => (
           <div
             key={i}
@@ -45,7 +45,7 @@ export default function JuryMembers() {
             <img
               src={src}
               alt={`Jury member ${i + 1}`}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-bottom"
             />
           </div>
         ))}

@@ -1,0 +1,71 @@
+<h2>Mobile Navbar: Which approach?</h2>
+<p class="subtitle">Currently there is no navigation at all on mobile — users can't navigate between sections.</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a0030;padding:16px;font-family:monospace;">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff33;padding-bottom:10px;">
+        <span style="color:#FFD700;font-size:13px;letter-spacing:2px;">LOA AWARDS</span>
+        <div style="display:flex;flex-direction:column;gap:4px;cursor:pointer;">
+          <div style="width:22px;height:2px;background:#fff;"></div>
+          <div style="width:22px;height:2px;background:#fff;"></div>
+          <div style="width:22px;height:2px;background:#fff;"></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+        <div style="color:#fff;font-size:12px;letter-spacing:2px;padding:6px 0;border-bottom:1px solid #ffffff22;">HOME</div>
+        <div style="color:#fff;font-size:12px;letter-spacing:2px;padding:6px 0;border-bottom:1px solid #ffffff22;">CATEGORIES</div>
+        <div style="color:#fff;font-size:12px;letter-spacing:2px;padding:6px 0;border-bottom:1px solid #ffffff22;">JURY MEMBERS</div>
+        <div style="color:#FFD700;font-size:12px;letter-spacing:2px;padding:6px 0;">SIGN IN</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Hamburger Menu</h3>
+      <p>☰ icon toggles a full dropdown nav. Clean, familiar pattern for mobile.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a0030;padding:16px;font-family:monospace;">
+      <div style="overflow-x:auto;white-space:nowrap;padding-bottom:8px;border-bottom:1px solid #ffffff33;">
+        <span style="color:#fff;font-size:10px;letter-spacing:2px;margin-right:20px;">HOME</span>
+        <span style="color:#fff;font-size:10px;letter-spacing:2px;margin-right:20px;">CATEGORIES</span>
+        <span style="color:#fff;font-size:10px;letter-spacing:2px;margin-right:20px;">JURY</span>
+        <span style="color:#fff;font-size:10px;letter-spacing:2px;margin-right:20px;">WINNERS</span>
+        <span style="color:#FFD700;font-size:10px;letter-spacing:2px;">SIGN IN</span>
+      </div>
+      <div style="margin-top:8px;color:#ffffff55;font-size:9px;">← scroll →</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Horizontal Scroll Bar</h3>
+      <p>All links in a single scrollable row. No extra interaction needed, but less discoverable.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a0030;padding:16px;font-family:monospace;">
+      <div style="display:flex;justify-content:space-around;padding-bottom:10px;border-bottom:1px solid #ffffff33;">
+        <div style="text-align:center;">
+          <div style="color:#fff;font-size:16px;">⌂</div>
+          <div style="color:#fff;font-size:8px;letter-spacing:1px;">HOME</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="color:#fff;font-size:16px;">🏆</div>
+          <div style="color:#fff;font-size:8px;letter-spacing:1px;">AWARDS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="color:#fff;font-size:16px;">👥</div>
+          <div style="color:#fff;font-size:8px;letter-spacing:1px;">JURY</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="color:#fff;font-size:16px;">✍</div>
+          <div style="color:#fff;font-size:8px;letter-spacing:1px;">SIGN IN</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Bottom Tab Bar</h3>
+      <p>Fixed bottom navigation with icons. App-like feel, always accessible.</p>
+    </div>
+  </div>
+</div>

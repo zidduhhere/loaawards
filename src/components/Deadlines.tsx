@@ -7,24 +7,27 @@ type DeadlineItemProps = {
 const DeadlineItem = ({ title, subtitle, date }: DeadlineItemProps) => (
   <div className="font-display flex items-center justify-between text-loa-yellow">
     <p>
-      <span className="text-4xl sm:text-5xl md:text-7xl">{title}</span>
+      <span className="text-3xl sm:text-4xl md:text-7xl">{title}</span>
       <br />
-      <span className="text-xl sm:text-2xl md:text-3xl tracking-wide leading-8">{subtitle}</span>
+      <span className="text-md sm:text-2xl md:text-3xl tracking-normal md:tracking-wide leading-1 md:leading-8">
+        {subtitle}
+      </span>
     </p>
 
     <span className="text-4xl sm:text-5xl md:text-7xl mx-2 md:mx-4">:</span>
-    <span className="text-5xl sm:text-6xl md:text-8xl text-start">{date}</span>
+    <span className="text-4xl md:text-8xl text-start">{date}</span>
   </div>
 );
 
 export default function Deadlines() {
   return (
     <section className="w-full h-fit pb-20 md:pb-30 bg-loa-pink text-loa-yellow">
-      <div className="pt-12 md:pt-20 px-6 md:px-30">
+      <div className="pt-12 md:pt-20 px-16 md:px-30">
         {/* ABOVE CONTENT */}
         <div className="flex flex-col md:flex-row w-full md:justify-around md:items-center gap-8 md:gap-0">
           <div>
             <DeadlineItem title="EARLY" subtitle="BIRD DEADLINE" date="25/10" />
+            <div className="h-2"></div>
             <DeadlineItem title="FINAL" subtitle="DEADLINE" date="14/12" />
           </div>
 
@@ -45,7 +48,7 @@ export default function Deadlines() {
           flex-center
           font-display text-loa-yellow
           leading-none
-          text-[8vw] md:text-[min(10vw,14vh)] py-5
+          text-[8vw] md:text-[min(10vw,7vw)] py-5
           "
         >
           DOWNLOAD <br />

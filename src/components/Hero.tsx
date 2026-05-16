@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-loa-purple h-screen flex flex-col justify-center relative"
+      className="bg-loa-purple  h-[80vh] md:h-screen flex flex-col justify-center relative"
     >
       <div className="flex-center">
         <img src="/assets/hero-full.svg" className="max-w-[80vw]" />
