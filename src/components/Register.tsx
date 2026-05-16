@@ -1,8 +1,8 @@
 export default function Register() {
   return (
-    <section className="bg-loa-yellow flex-center flex-col h-auto md:h-screen py-16 md:py-0">
-      <div className="flex flex-col px-12 lg:px-0 md:flex-row items-start md:items-center w-[88vw] md:w-[80vw] gap-8 md:gap-0">
-        <div className="flex-5">
+    <section className="bg-loa-yellow flex justify-start items-center flex-col max-h-full py-16">
+      <div className="flex flex-col px-12 md:px-0 md:flex-row items-start justify-start md:items-center w-[88vw] md:w-[80vw] gap-8 ">
+        <div className="flex-5 min-w-0">
           <h2 className="font-display text-[12vw] sm:text-[10vw] md:text-[11vw] text-loa-purple uppercase leading-none">
             <span className="text-[14vw] sm:text-[12vw] md:text-[14vw]">
               LOA
@@ -20,7 +20,7 @@ export default function Register() {
         </div>
 
         <div className="flex-2 items-start font-body">
-          <p className="text-2xl leading-relaxed text-loa-purple">
+          <p className="textxl leading-relaxed text-loa-purple">
             If you believe in the power of what you create, this is your moment
             to share it with the world and let it shine. Early bird entries are
             now open. Secure your spot and make the most of special entry
