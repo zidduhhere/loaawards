@@ -5,14 +5,38 @@ type JuryMember = {
 };
 
 const JURY: JuryMember[] = [
-  { src: "/assets/1.png", name: "Sarah Mitchell", position: "Chief Creative Officer" },
-  { src: "/assets/2.png", name: "James Okafor", position: "Executive Producer" },
-  { src: "/assets/4.png", name: "Priya Nair", position: "Global Strategy Director" },
-  { src: "/assets/5.png", name: "Marco Ferretti", position: "Head of Brand Experience" },
+  {
+    src: "/assets/1.png",
+    name: "Sarah Mitchell",
+    position: "Chief Creative Officer",
+  },
+  {
+    src: "/assets/2.png",
+    name: "James Okafor",
+    position: "Executive Producer",
+  },
+  {
+    src: "/assets/4.png",
+    name: "Priya Nair",
+    position: "Global Strategy Director",
+  },
+  {
+    src: "/assets/5.png",
+    name: "Marco Ferretti",
+    position: "Head of Brand Experience",
+  },
   { src: "/assets/6.png", name: "Lena Bauer", position: "Creative Director" },
   { src: "/assets/7.png", name: "Daniel Chow", position: "VP of Marketing" },
-  { src: "/assets/8.png", name: "Amara Diallo", position: "Head of Design Innovation" },
-  { src: "/assets/9.png", name: "Tom Reeves", position: "Chief Marketing Officer" },
+  {
+    src: "/assets/8.png",
+    name: "Amara Diallo",
+    position: "Head of Design Innovation",
+  },
+  {
+    src: "/assets/9.png",
+    name: "Tom Reeves",
+    position: "Chief Marketing Officer",
+  },
 ];
 
 const BG_COLORS = [
@@ -46,12 +70,14 @@ export default function JuryMembers() {
         {JURY.map((member, i) => (
           <div
             key={i}
-            className={`col-span-1 sm:col-span-2 aspect-square ${i === 6 ? "md:col-start-2" : ""} [perspective:600px] group`}
+            className={`col-span-1 sm:col-span-2 aspect-square ${i === 6 ? "md:col-start-2" : ""} perspective-[600px] group`}
           >
             {/* Flip wrapper */}
-            <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
+            <div className="relative w-full h-full transform-3d transition-transform duration-500 group-hover:transform-[rotateY(180deg)]">
               {/* Front — photo */}
-              <div className={`absolute inset-0 rounded-full overflow-hidden [backface-visibility:hidden] ${BG_COLORS[i % BG_COLORS.length]}`}>
+              <div
+                className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${BG_COLORS[i % BG_COLORS.length]}`}
+              >
                 <img
                   src={member.src}
                   alt={member.name}
@@ -59,8 +85,10 @@ export default function JuryMembers() {
                 />
               </div>
               {/* Back — name & position */}
-              <div className={`absolute inset-0 rounded-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${BG_COLORS[i % BG_COLORS.length]} flex flex-col items-center justify-center px-3 text-center`}>
-                <p className="font-display text-loa-black text-xs sm:text-sm md:text-base leading-tight">
+              <div
+                className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${BG_COLORS[i % BG_COLORS.length]} flex flex-col items-center justify-center px-3 text-center`}
+              >
+                <p className="font-display text-loa-white text-2xl leading-tight">
                   {member.name}
                 </p>
                 <p className="font-body text-loa-black text-[10px] sm:text-xs mt-1 opacity-80 leading-snug">
