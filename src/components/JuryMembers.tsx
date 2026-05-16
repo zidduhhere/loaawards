@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 type JuryMember = {
   src: string;
   name: string;
@@ -50,6 +52,44 @@ const BG_COLORS = [
   "bg-loa-yellow",
 ];
 
+function JuryCard({ member, index }: { member: JuryMember; index: number }) {
+  const [flipped, setFlipped] = useState(false);
+  const bg = BG_COLORS[index % BG_COLORS.length];
+
+  return (
+    <div
+      className={`col-span-1 sm:col-span-2 aspect-square ${index === 6 ? "md:col-start-2" : ""} perspective-[600px] cursor-pointer`}
+      onClick={() => setFlipped((f) => !f)}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <div
+        className={`relative w-full h-full transform-3d transition-transform duration-500 ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
+      >
+        {/* Front — photo */}
+        <div className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}>
+          <img
+            src={member.src}
+            alt={member.name}
+            className="w-full h-full object-cover object-bottom"
+          />
+        </div>
+        {/* Back — name & position */}
+        <div
+          className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${bg} flex flex-col items-center justify-center px-3 text-center`}
+        >
+          <p className="font-display text-loa-black text-xs sm:text-sm md:text-base leading-tight">
+            {member.name}
+          </p>
+          <p className="font-body text-loa-black text-[10px] sm:text-xs mt-1 opacity-80 leading-snug">
+            {member.position}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function JuryMembers() {
   return (
     <section
@@ -68,35 +108,7 @@ export default function JuryMembers() {
       </div>
       <div className="px-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-10 max-w-5xl mx-auto">
         {JURY.map((member, i) => (
-          <div
-            key={i}
-            className={`col-span-1 sm:col-span-2 aspect-square ${i === 6 ? "md:col-start-2" : ""} perspective-[600px] group`}
-          >
-            {/* Flip wrapper */}
-            <div className="relative w-full h-full transform-3d transition-transform duration-500 group-hover:transform-[rotateY(180deg)]">
-              {/* Front — photo */}
-              <div
-                className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${BG_COLORS[i % BG_COLORS.length]}`}
-              >
-                <img
-                  src={member.src}
-                  alt={member.name}
-                  className="w-full h-full object-cover object-bottom"
-                />
-              </div>
-              {/* Back — name & position */}
-              <div
-                className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${BG_COLORS[i % BG_COLORS.length]} flex flex-col items-center justify-center px-3 text-center`}
-              >
-                <p className="font-display text-loa-white text-2xl leading-tight">
-                  {member.name}
-                </p>
-                <p className="font-body text-loa-black text-[10px] sm:text-xs mt-1 opacity-80 leading-snug">
-                  {member.position}
-                </p>
-              </div>
-            </div>
-          </div>
+          <JuryCard key={i} member={member} index={i} />
         ))}
       </div>
     </section>
