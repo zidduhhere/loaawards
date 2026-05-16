@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-[#FF1493] pt-1">
-      <div className="flex flex-row justify-between items-start px-16 py-10">
+      <div className="flex flex-col gap-8 md:flex-row md:justify-between items-start px-6 md:px-16 py-10">
         {/* Related Sites */}
         <div>
           <p className="font-bold text-black text-base mb-2">Related Sites</p>
