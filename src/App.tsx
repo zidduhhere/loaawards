@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,54 +13,46 @@ import JuryMembers from "./components/JuryMembers";
 import Winners from "./components/Winners";
 import Footer from "./components/Footer";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const deadlinesRef = useRef<HTMLDivElement>(null);
   const heroPanelRef = useRef<HTMLDivElement>(null);
   const deadlinesPanelRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
       // Hero → Register: yellow curtain rises from bottom
-      gsap.fromTo(
-        heroPanelRef.current,
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "60% top",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
+      gsap.fromTo(heroPanelRef.current, { yPercent: 100 }, {
+        yPercent: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "60% top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
 
       // Deadlines → Awards: yellow curtain rises from bottom
-      gsap.fromTo(
-        deadlinesPanelRef.current,
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: deadlinesRef.current,
-            start: "60% top",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-    },
-    { scope: containerRef }
-  );
+      gsap.fromTo(deadlinesPanelRef.current, { yPercent: 100 }, {
+        yPercent: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: deadlinesRef.current,
+          start: "60% top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div ref={containerRef} className="w-screen">
+    <div className="w-screen">
       <Navbar />
 
       {/* Hero wrapped for overflow-clipped curtain */}
