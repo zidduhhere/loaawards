@@ -10,7 +10,7 @@ export default function Awards() {
     <section className="bg-loa-yellow px-10 py-20 h-fit min-h-[60vh] md:overflow-hidden">
       <div className="mx-auto w-full flex flex-col items-center justify-center h-full">
         <h2
-          className=" z-30 text-6xl md:text-8xl lg:text-[140px] text-loa-purple uppercase leading-none tracking-tight text-center"
+          className=" z-30 pb-10 text-6xl md:text-8xl lg:text-[140px] text-loa-purple uppercase leading-none tracking-tight text-center"
           style={{ fontFamily: "var(--font-display)" }}
         >
           AWARDS
@@ -21,7 +21,7 @@ export default function Awards() {
               key={t.src}
               src={t.src}
               alt={t.alt}
-              className="h-32 md:h-48 lg:h-60 aspect-square object-contain hover:-translate-y-2 transition-transform duration-300 bg-white rounded-full"
+              className="h-48 lg:h-60 aspect-square object-contain hover:-translate-y-2 transition-transform duration-300 bg-white rounded-full"
             />
           ))}
         </div>

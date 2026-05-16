@@ -1,6 +1,6 @@
 export default function Register() {
   return (
-    <section className="bg-loa-yellow flex-center h-auto md:h-screen py-16 md:py-0">
+    <section className="bg-loa-yellow flex-center flex-col h-auto md:h-screen py-16 md:py-0">
       <div className="flex flex-col px-12 lg:px-0 md:flex-row items-start md:items-center w-[88vw] md:w-[80vw] gap-8 md:gap-0">
         <div className="flex-5">
           <h2 className="font-display text-[12vw] sm:text-[10vw] md:text-[11vw] text-loa-purple uppercase leading-none">
@@ -28,6 +28,9 @@ export default function Register() {
           </p>
         </div>
       </div>
+      <button className="w-full max-w-2xl lg:mt-10 font-display uppercase bg-loa-purple py-8 text-loa-yellow text-xl">
+        Register Now
+      </button>
     </section>
   );
 }

@@ -5,17 +5,17 @@ type DeadlineItemProps = {
 };
 
 const DeadlineItem = ({ title, subtitle, date }: DeadlineItemProps) => (
-  <div className="font-display flex items-center justify-between text-loa-yellow">
-    <p>
-      <span className="text-3xl sm:text-4xl md:text-7xl">{title}</span>
+  <div className="font-display flex items-center align-bottom justify-between text-loa-yellow">
+    <p className="">
+      <span className="text-3xl  sm:text-4xl md:text-7xl">{title}</span>
       <br />
       <span className="text-md sm:text-2xl md:text-3xl tracking-normal md:tracking-wide leading-1 md:leading-8">
         {subtitle}
       </span>
     </p>
 
-    <span className="text-4xl sm:text-5xl md:text-7xl mx-2 md:mx-4">:</span>
-    <span className="text-4xl md:text-8xl text-start">{date}</span>
+    <span className="text-4xl sm:text-5xl md:text-7xl mx-2 md:mx-4 ">:</span>
+    <span className="text-4xl md:text-8xl text-start ">{date}</span>
   </div>
 );
 
