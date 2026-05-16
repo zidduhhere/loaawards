@@ -20,7 +20,7 @@ export default function Register() {
         </div>
 
         <div className="flex-2 items-start font-body">
-          <p className="text-sm leading-relaxed text-loa-purple">
+          <p className="text-2xl leading-relaxed text-loa-purple">
             If you believe in the power of what you create, this is your moment
             to share it with the world and let it shine. Early bird entries are
             now open. Secure your spot and make the most of special entry
@@ -28,7 +28,7 @@ export default function Register() {
           </p>
         </div>
       </div>
-      <button className="w-full max-w-2xl lg:mt-10 font-display uppercase bg-loa-purple py-8 text-loa-yellow text-xl">
+      <button className="px-8 max-w-2xl lg:mt-10 font-display uppercase bg-loa-purple py-8 text-loa-yellow text-xl hover:bg-loa-black hover:text-loa-purple transition-colors duration-300 cursor-pointer">
         Register Now
       </button>
     </section>

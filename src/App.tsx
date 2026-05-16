@@ -18,34 +18,60 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
   const heroRef = useRef<HTMLDivElement>(null);
   const deadlinesRef = useRef<HTMLDivElement>(null);
+  const awardsRef = useRef<HTMLDivElement>(null);
   const heroPanelRef = useRef<HTMLDivElement>(null);
   const deadlinesPanelRef = useRef<HTMLDivElement>(null);
-
+  const awardsPanelRef = useRef<HTMLDivElement>(null);
+  //
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero → Register: yellow curtain rises from bottom
-      gsap.fromTo(heroPanelRef.current, { yPercent: 100 }, {
-        yPercent: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "60% top",
-          end: "bottom top",
-          scrub: true,
+      // Hero → Register: yellow curtain rises from bottom via clip-path
+      gsap.fromTo(
+        heroPanelRef.current,
+        { clipPath: "inset(100% 0 0 0)" },
+        {
+          clipPath: "inset(0% 0 0 0)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: true,
+          },
         },
-      });
+      );
 
-      // Deadlines → Awards: yellow curtain rises from bottom
-      gsap.fromTo(deadlinesPanelRef.current, { yPercent: 100 }, {
-        yPercent: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: deadlinesRef.current,
-          start: "60% top",
-          end: "bottom top",
-          scrub: true,
+      // Deadlines → Awards: yellow curtain rises from bottom via clip-path
+      gsap.fromTo(
+        deadlinesPanelRef.current,
+        { clipPath: "inset(100% 0 0 0)" },
+        {
+          clipPath: "inset(0% 0 0 0)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: deadlinesRef.current,
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: true,
+          },
         },
-      });
+      );
+
+      // Awards → Categories: yellow curtain rises from bottom via clip-path
+      gsap.fromTo(
+        awardsPanelRef.current,
+        { clipPath: "inset(100% 0 0 0)" },
+        {
+          clipPath: "inset(0% 0 0 0)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: awardsRef.current,
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        },
+      );
     });
 
     return () => ctx.revert();
@@ -55,32 +81,42 @@ export default function App() {
     <div className="w-screen">
       <Navbar />
 
-      {/* Hero wrapped for overflow-clipped curtain */}
-      <div ref={heroRef} className="relative overflow-hidden">
+      {/* Hero wrapped for curtain */}
+      <div ref={heroRef} className="relative">
         <Hero />
-        {/* Yellow curtain: absolute, bottom-anchored, viewport-height, starts below */}
+        {/* Yellow curtain: clip-path reveals from bottom */}
         <div
           ref={heroPanelRef}
-          className="absolute bottom-0 left-0 w-full h-screen bg-loa-yellow pointer-events-none z-10"
-          style={{ transform: "translateY(100%)" }}
+          className="absolute inset-0 bg-loa-yellow pointer-events-none z-10"
+          style={{ clipPath: "inset(100% 0 0 0)" }}
         />
       </div>
 
       <Register />
       <About />
 
-      {/* Deadlines wrapped for overflow-clipped curtain */}
-      <div ref={deadlinesRef} className="relative overflow-hidden">
+      {/* Deadlines wrapped for curtain */}
+      <div ref={deadlinesRef} className="relative">
         <Deadlines />
-        {/* Yellow curtain: absolute, bottom-anchored, viewport-height, starts below */}
+        {/* Yellow curtain: clip-path reveals from bottom */}
         <div
           ref={deadlinesPanelRef}
-          className="absolute bottom-0 left-0 w-full h-screen bg-loa-yellow pointer-events-none z-10"
-          style={{ transform: "translateY(100%)" }}
+          className="absolute inset-0 bg-loa-yellow pointer-events-none z-10"
+          style={{ clipPath: "inset(100% 0 0 0)" }}
         />
       </div>
 
-      <Awards />
+      {/* Awards wrapped for curtain */}
+      <div ref={awardsRef} className="relative">
+        <Awards />
+        {/* Yellow curtain: clip-path reveals from bottom */}
+        <div
+          ref={awardsPanelRef}
+          className="absolute inset-0 bg-loa-yellow pointer-events-none z-10"
+          style={{ clipPath: "inset(100% 0 0 0)" }}
+        />
+      </div>
+
       <Categories />
       <JuryMembers />
       <Winners />
