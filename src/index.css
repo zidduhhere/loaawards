@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Glodok';
+  src: url('/fonts/glodok.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@theme {
+  --font-display: 'Glodok', sans-serif;
+  --font-body: 'Gotham', sans-serif;
+
+  /* LOA 2026 Brand Colors */
+  --color-loa-purple: #5B1BE8;
+  --color-loa-yellow: #FFE600;
+  --color-loa-pink: #FF2D8B;
+  --color-loa-black: #0A0A0A;
+  --color-loa-white: #FFFFFF;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-loa-black);
+  
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
