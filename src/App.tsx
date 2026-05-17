@@ -112,7 +112,7 @@ export default function App() {
         {/* Yellow curtain: clip-path reveals from bottom */}
         <div
           ref={awardsPanelRef}
-          className="absolute inset-0 bg-loa-yellow pointer-events-none z-10"
+          className="absolute inset-0 bg-loa-purple pointer-events-none z-10"
           style={{ clipPath: "inset(100% 0 0 0)" }}
         />
       </div>

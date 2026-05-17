@@ -20,7 +20,7 @@ export default function Register() {
         </div>
 
         <div className="flex-2 items-start font-body">
-          <p className="textxl leading-relaxed text-loa-purple">
+          <p className="text-xl leading-relaxed text-loa-purple">
             If you believe in the power of what you create, this is your moment
             to share it with the world and let it shine. Early bird entries are
             now open. Secure your spot and make the most of special entry
