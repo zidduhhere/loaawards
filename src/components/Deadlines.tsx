@@ -1,7 +1,7 @@
 export default function Deadlines() {
   return (
     <section className="w-full h-fit pb-20 md:pb-30 bg-loa-pink text-loa-yellow">
-      <div className="pt-12 md:pt-20 px-16 md:px-30">
+      <div className="pt-6 md:pt-10 px-16 md:px-30">
         {/* ABOVE CONTENT */}
         <div className="flex flex-col md:flex-row w-full md:justify-around md:items-center gap-8 md:gap-0">
           <div className="font-display text-loa-yellow grid grid-cols-[auto_auto_auto] items-start gap-y-2">
