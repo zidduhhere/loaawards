@@ -15,7 +15,7 @@ export default function Categories() {
   return (
     <section
       id="categories"
-      className="bg-loa-purple px-10 py-20 h-FIT overflow-hidden"
+      className="bg-loa-purple px-10 pt-6 pb-16 h-fit overflow-hidden"
     >
       <div className="max-w-5xl mx-auto w-full flex flex-col items-center gap-8">
         <h2
