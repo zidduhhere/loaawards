@@ -67,7 +67,9 @@ function JuryCard({ member, index }: { member: JuryMember; index: number }) {
         className={`relative w-full h-full transform-3d transition-transform duration-500 ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
       >
         {/* Front — photo */}
-        <div className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}>
+        <div
+          className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}
+        >
           <img
             src={member.src}
             alt={member.name}
@@ -78,7 +80,7 @@ function JuryCard({ member, index }: { member: JuryMember; index: number }) {
         <div
           className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${bg} flex flex-col items-center justify-center px-3 text-center`}
         >
-          <p className="font-display text-loa-black text-xs sm:text-sm md:text-base leading-tight">
+          <p className="font-display text-loa-white text-xs sm:text-sm md:text-2xl leading-tight">
             {member.name}
           </p>
           <p className="font-body text-loa-black text-[10px] sm:text-xs mt-1 opacity-80 leading-snug">

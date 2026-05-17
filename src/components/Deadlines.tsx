@@ -17,7 +17,7 @@ export default function Deadlines() {
             <span className="text-4xl sm:text-5xl md:text-7xl leading-none px-2 md:px-4">
               :
             </span>
-            <span className="text-4xl md:text-8xl leading-none border-2 px-2">
+            <span className="text-4xl md:text-8xl leading-none  px-2">
               25/10
             </span>
 
@@ -33,7 +33,7 @@ export default function Deadlines() {
             <span className="text-4xl sm:text-5xl md:text-7xl leading-none px-2 md:px-4">
               :
             </span>
-            <span className="text-4xl md:text-8xl leading-none border-2 px-2">
+            <span className="text-4xl md:text-8xl leading-none  px-2">
               14/12
             </span>
           </div>
