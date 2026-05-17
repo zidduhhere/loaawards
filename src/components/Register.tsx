@@ -1,7 +1,7 @@
 export default function Register() {
   return (
-    <section className="bg-loa-yellow flex justify-start items-center flex-col max-h-full pt-6 pb-16 overflow-hidden">
-      <div className="flex flex-col px-12 md:px-0 md:flex-row items-start justify-start md:items-center w-[88vw] md:w-[80vw] gap-8">
+    <section className="bg-loa-yellow flex justify-start items-center flex-col  pb-16 overflow-hidden h-fit">
+      <div className="flex flex-col px-12 md:px-0 md:flex-row items-start justify-start md:items-center w-[88vw] md:w-[80vw] gap-8 ">
         <div className="flex-5 min-w-0">
           <h2 className="font-display text-[12vw] sm:text-[10vw] md:text-[11vw] text-loa-purple uppercase leading-none">
             <span className="text-[14vw] sm:text-[12vw] md:text-[14vw] block">

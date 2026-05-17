@@ -1,6 +1,6 @@
 export default function Deadlines() {
   return (
-    <section className="w-full h-fit pb-20 md:pb-30 bg-loa-pink text-loa-yellow">
+    <section className="w-full h-screen pb-20 md:pb-30 bg-loa-pink text-loa-yellow">
       <div className="pt-6 md:pt-10 px-16 md:px-30">
         {/* ABOVE CONTENT */}
         <div className="flex flex-col md:flex-row w-full md:justify-around md:items-center gap-8 md:gap-0">
