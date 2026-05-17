@@ -7,7 +7,7 @@ const TROPHIES = [
 
 export default function Awards() {
   return (
-    <section className="bg-loa-yellow px-10 py-20 h-fit min-h-[60vh] md:overflow-hidden">
+    <section className="bg-loa-yellow px-10 pt-6 pb-16 h-fit md:overflow-hidden">
       <div className="mx-auto w-full flex flex-col items-center justify-center h-full">
         <h2
           className=" z-30 pb-10 text-6xl md:text-8xl lg:text-[140px] text-loa-purple uppercase leading-none tracking-tight text-center"
