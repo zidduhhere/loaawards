@@ -55,7 +55,7 @@ export default function Deadlines() {
           flex-center
           font-display text-loa-yellow
           leading-none
-          text-[8vw] md:text-[min(10vw,7vw)] py-5
+          text-[clamp(2rem,6vw,7rem)] py-5
           "
         >
           DOWNLOAD <br />
