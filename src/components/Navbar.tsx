@@ -1,22 +1,49 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const NAV_LINKS = ["HOME", "CATEGORIES", "JURY MEMBERS", "WINNERS", "SIGN IN"];
+const NAV_LINKS: { label: string; id: string }[] = [
+  { label: "HOME",        id: "home" },
+  { label: "CATEGORIES",  id: "categories" },
+  { label: "JURY MEMBERS",id: "jury" },
+  { label: "WINNERS",     id: "winners" },
+  { label: "SIGN IN",     id: "register" },
+];
+
+function scrollToSection(id: string) {
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    scrollToSection(id);
+  };
+
+  const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    setTimeout(() => scrollToSection(id), 50);
+  };
 
   return (
     <nav className="absolute w-full top-5 z-50">
       {/* Desktop nav */}
       <ul className="hidden md:flex list-none gap-20 items-center justify-center">
-        {NAV_LINKS.map((link) => (
-          <li key={link}>
+        {NAV_LINKS.map(({ label, id }) => (
+          <li key={id}>
             <a
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`#${id}`}
+              onClick={(e) => handleClick(e, id)}
               className="text-[14px] tracking-widest text-white font-body font-bold transition-colors"
             >
-              {link}
+              {label}
             </a>
           </li>
         ))}
@@ -36,14 +63,14 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {menuOpen && (
         <ul className="md:hidden list-none flex flex-col items-center gap-6 mt-4 bg-loa-purple/90 py-8 px-6">
-          {NAV_LINKS.map((link) => (
-            <li key={link}>
+          {NAV_LINKS.map(({ label, id }) => (
+            <li key={id}>
               <a
-                href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                onClick={() => setMenuOpen(false)}
+                href={`#${id}`}
+                onClick={(e) => handleMobileClick(e, id)}
                 className="text-[14px] tracking-widest text-white font-body font-bold transition-colors"
               >
-                {link}
+                {label}
               </a>
             </li>
           ))}

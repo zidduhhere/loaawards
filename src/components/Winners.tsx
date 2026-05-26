@@ -1,3 +1,3 @@
 export default function Winners() {
-  return <section></section>;
+  return <section id="winners"></section>;
 }

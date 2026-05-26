@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 interface Subcategory {
   name: string;
@@ -176,6 +176,13 @@ export default function Categories() {
   const [selected, setSelected] = useState<Subcategory | null>(null);
 
   const filters = ["All", ...CATEGORY_GROUPS.map((g) => g.title)];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: dir === "right" ? 200 : -200, behavior: "smooth" });
+    }
+  };
 
   const filtered = useMemo(() => {
     return ALL_SUBCATEGORIES.filter((s) => {
@@ -272,33 +279,67 @@ export default function Categories() {
         </div>
 
         {/* Filter tabs */}
-        <div className="w-full overflow-x-auto no-scrollbar">
-          <div className="flex gap-2 pb-1 min-w-max mx-auto justify-start md:justify-center">
-            {filters.map((f) => {
-              const isActive = activeFilter === f;
-              const group = CATEGORY_GROUPS.find((g) => g.title === f);
-              const accentColor = group?.color ?? "#FFE600";
-              return (
-                <button
-                  key={f}
-                  onClick={() => setActiveFilter(f)}
-                  className="shrink-0 px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all duration-200 border"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    backgroundColor: isActive ? accentColor : "transparent",
-                    color: isActive
-                      ? (group?.textColor ?? "#5B1BE8")
-                      : "rgba(255,255,255,0.6)",
-                    borderColor: isActive
-                      ? accentColor
-                      : "rgba(255,255,255,0.2)",
-                  }}
-                >
-                  {f === "All" ? "All" : f.replace("For the Love of ", "")}
-                </button>
-              );
-            })}
+        <div className="relative w-full flex items-center gap-2">
+          {/* Left arrow */}
+          <button
+            onClick={() => scroll("left")}
+            className="shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200 bg-white/5"
+            aria-label="Scroll left"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          {/* Scrollable row */}
+          <div className="relative flex-1 min-w-0">
+            {/* Left fade */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-8 z-10"
+              style={{ background: "linear-gradient(to right, #5B1BE8, transparent)" }} />
+            {/* Right fade */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-8 z-10"
+              style={{ background: "linear-gradient(to left, #5B1BE8, transparent)" }} />
+
+            <div ref={scrollRef} className="overflow-x-auto no-scrollbar px-2">
+              <div className="flex gap-2 pb-1 min-w-max">
+                {filters.map((f) => {
+                  const isActive = activeFilter === f;
+                  const group = CATEGORY_GROUPS.find((g) => g.title === f);
+                  const accentColor = group?.color ?? "#FFE600";
+                  return (
+                    <button
+                      key={f}
+                      onClick={() => setActiveFilter(f)}
+                      className="shrink-0 px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all duration-200 border"
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        backgroundColor: isActive ? accentColor : "transparent",
+                        color: isActive
+                          ? (group?.textColor ?? "#5B1BE8")
+                          : "rgba(255,255,255,0.6)",
+                        borderColor: isActive
+                          ? accentColor
+                          : "rgba(255,255,255,0.2)",
+                      }}
+                    >
+                      {f === "All" ? "All" : f.replace("For the Love of ", "")}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
+
+          {/* Right arrow */}
+          <button
+            onClick={() => scroll("right")}
+            className="shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200 bg-white/5"
+            aria-label="Scroll right"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
 
         {/* Category grid */}
@@ -317,7 +358,7 @@ export default function Categories() {
                   key={sub.name + sub.parent}
                   onClick={() => setSelected(sub)}
                   style={{ backgroundColor: group.color }}
-                  className="group/card relative text-left h-40 bg-loa-yellow transition-all duration-300 p-4 flex flex-col gap-2 cursor-pointer group-hover/grid:opacity-40 group-hover/grid:scale-[0.98] hover:!opacity-100 hover:!scale-100 hover:-translate-y-2"
+                  className="group/card relative text-left h-40 bg-loa-yellow transition-all duration-300 p-4 flex flex-col gap-2 cursor-pointer group-hover/grid:opacity-40 group-hover/grid:scale-[0.98] hover:opacity-100! hover:scale-100! hover:-translate-y-2"
                 >
                   {/* Accent dot */}
                   <span
