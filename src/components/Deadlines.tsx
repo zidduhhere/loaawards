@@ -89,7 +89,7 @@ export default function Deadlines() {
       className="relative w-full min-h-[60vh] md:min-h-screen bg-loa-pink text-loa-yellow flex flex-col overflow-hidden py-12 md:py-0"
     >
       <img
-        src="/assets/logo-loa.png"
+        src="/assets/logo-loa.webp"
         alt="LOA Logo"
         className="hidden md:block absolute top-6 right-6 h-28 md:h-32 object-contain z-20 pointer-events-none"
       />

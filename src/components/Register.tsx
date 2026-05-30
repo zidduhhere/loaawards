@@ -1,7 +1,7 @@
 export default function Register() {
   return (
     <section id="register" className="relative bg-loa-yellow px-24 md:px-48 flex justify-start items-start flex-col pt-10 md:pt-16 pb-16 overflow-hidden h-fit">
-      <img src="/assets/logo-loa.png" alt="LOA Logo" className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10" />
+      <img src="/assets/logo-loa.webp" alt="LOA Logo" className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10" />
       <div className="flex flex-col md:flex-row items-start justify-start md:items-center w-full gap-8">
         <div className="flex-5 min-w-0">
           <h2 className="font-display text-[12vw] sm:text-[10vw] md:text-[11vw] text-loa-purple uppercase leading-none">

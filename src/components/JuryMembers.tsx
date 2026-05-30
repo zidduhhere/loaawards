@@ -10,43 +10,43 @@ type JuryMember = {
 
 const JURY: JuryMember[] = [
   {
-    src: "/assets/jury-1-bobby.png",
+    src: "/assets/jury-1-bobby.webp",
     name: "Bobby Pawar",
     position: "Former Chairman\nHavas - Jury Chair",
   },
   {
-    src: "/assets/jury-2-swarup.png",
+    src: "/assets/jury-2-swarup.webp",
     name: "Swarup BR",
     position: "Co-Founder\nStark Communications",
   },
   {
-    src: "/assets/jury-3-senthil.png",
+    src: "/assets/jury-3-senthil.webp",
     name: "Senthil Kumar",
     position: "CCO, VML",
   },
   {
-    src: "/assets/jury-4-pooja.png",
+    src: "/assets/jury-4-pooja.webp",
     name: "Pooja Manek",
     position: "Founding Member\nTalented",
   },
   {
-    src: "/assets/jury-5-anilkumar.png",
+    src: "/assets/jury-5-anilkumar.webp",
     name: "PK Anil Kumar",
     position: "Director\nCreative Excellence McCann",
-    imageClassName: "object-[center_20%]", // Usually better than bottom for portraits, or just use object-bottom
+    imageClassName: "object-bottom",
   },
   {
-    src: "/assets/jury-7-sagar.png",
+    src: "/assets/jury-7-sagar.webp",
     name: "Sagar Jadhav",
     position: "ECD, Ogilvy",
   },
   {
-    src: "/assets/jury-8-anna.png",
+    src: "/assets/jury-8-anna.webp",
     name: "Anna Joseph",
     position: "Independent Filmmaker",
   },
   {
-    src: "/assets/jury-9-krishnanunni.png",
+    src: "/assets/jury-9-krishnanunni.webp",
     name: "Krishnanunni",
     position: "Creative Head, Ather Energy",
   },
@@ -143,7 +143,7 @@ export default function JuryMembers() {
         />
       </div>
       <img
-        src="/assets/logo-loa.png"
+        src="/assets/logo-loa.webp"
         alt="LOA Logo"
         className="hidden md:block absolute top-6 right-8 h-32 object-contain z-20 pointer-events-none"
       />

@@ -1,10 +1,10 @@
 import FaultyTerminal from "./FaultyTerminal";
 
 const TROPHIES = [
-  { src: "/assets/black.png", alt: "Black Heart", bg: "bg-loa-pink" },
-  { src: "/assets/cyan.png", alt: "Cyan Heart", bg: "bg-loa-purple" },
-  { src: "/assets/magenta.png", alt: "Magenta Heart", bg: "bg-loa-black" },
-  { src: "/assets/yellow.png", alt: "Yellow Heart", bg: "bg-loa-purple" },
+  { src: "/assets/black.webp", alt: "Black Heart", bg: "bg-loa-pink" },
+  { src: "/assets/cyan.webp", alt: "Cyan Heart", bg: "bg-loa-purple" },
+  { src: "/assets/magenta.webp", alt: "Magenta Heart", bg: "bg-loa-black" },
+  { src: "/assets/yellow.webp", alt: "Yellow Heart", bg: "bg-loa-purple" },
 ];
 
 export default function Awards() {
@@ -33,7 +33,7 @@ export default function Awards() {
         />
       </div>
       <img
-        src="/assets/logo-loa-black.png"
+        src="/assets/logo-loa-black.webp"
         alt="LOA Logo"
         className="absolute top-6 right-8 h-18 object-contain z-10 hidden md:block"
       />

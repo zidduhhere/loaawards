@@ -50,7 +50,7 @@ const About = () => {
     >
       <div className="w-full max-w-[1600px] mx-auto px-12 md:px-24 lg:px-48">
       <img
-        src="/assets/logo-loa.png"
+        src="/assets/logo-loa.webp"
         alt="LOA Logo"
         className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10"
       />

@@ -200,7 +200,7 @@ export default function Categories() {
       id="categories"
       className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-6 pb-16 overflow-hidden"
     >
-      <img src="/assets/logo-loa.png" alt="LOA Logo" className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10" />
+      <img src="/assets/logo-loa.webp" alt="LOA Logo" className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10" />
       <div className="max-w-6xl mx-auto w-full flex flex-col items-center gap-8">
         {/* Heading */}
         <h2
