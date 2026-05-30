@@ -112,7 +112,7 @@ export default function Awards() {
               <img
                 src={t.src}
                 alt={t.alt}
-                className="w-32 h-32 object-contain rounded-full bg-loa-purple"
+                className="w-32 h-32 object-contain rounded-full bg-white"
                 style={{
                   height:
                     selectedId === t.src
@@ -176,7 +176,7 @@ export default function Awards() {
               <img
                 src={t.src}
                 alt={t.alt}
-                className="h-28 aspect-square object-contain rounded-full bg-loa-purple"
+                className="h-28 aspect-square object-contain rounded-full bg-white"
               />
             </button>
           ))}
