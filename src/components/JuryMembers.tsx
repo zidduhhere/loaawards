@@ -34,11 +34,6 @@ const JURY: JuryMember[] = [
     position: "Director\nCreative Excellence McCann",
   },
   {
-    src: "/assets/cyan.png", // Fallback for Nishad
-    name: "Nishad Ramachandran",
-    position: "Chief AI & Digital Officer\nVidzai",
-  },
-  {
     src: "/assets/jury-7-sagar.png",
     name: "Sagar Jadhav",
     position: "ECD, Ogilvy",
