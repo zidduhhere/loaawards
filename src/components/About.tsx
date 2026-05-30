@@ -46,7 +46,7 @@ const About = () => {
     <div
       ref={sectionRef}
       id="about"
-      className="relative w-screen min-h-screen flex-center px-12 md:px-24 overflow-hidden"
+      className="relative w-screen min-h-screen flex-center px-24 md:px-48 overflow-hidden"
     >
       <img
         src="/assets/logo-loa.png"
