@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+
 interface Trophy {
   src: string;
   alt: string;
@@ -47,36 +49,134 @@ const TROPHIES: Trophy[] = [
 ];
 
 export default function Awards() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selectedTrophy = TROPHIES.find((t) => t.src === selectedId) ?? null;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const panelContentRef = useRef<HTMLDivElement>(null);
+
+  const handleTrophyClick = (src: string) => {
+    setSelectedId((prev) => (prev === src ? null : src));
+  };
+
   return (
-    <section className="relative bg-loa-yellow px-24 md:px-48 min-h-screen flex flex-col justify-start items-center pt-16">
+    <section className="relative bg-loa-yellow px-24 md:px-48 min-h-screen flex flex-col justify-start items-center pt-16 overflow-hidden">
       <img
         src="/assets/logo-loa-black.png"
         alt="LOA Logo"
-        className="absolute top-6 right-8 h-16 object-contain z-10"
+        className="absolute top-6 right-8 h-6 object-contain z-10"
       />
-      <div className="mx-auto w-full flex flex-col items-center justify-start">
-        <h2
-          className="pb-6 text-6xl md:text-8xl lg:text-[120px] text-loa-purple uppercase leading-none tracking-tight text-center"
-          style={{ fontFamily: "var(--font-display)" }}
+
+      <h2
+        className="pb-6 text-6xl md:text-8xl lg:text-[120px] text-loa-purple uppercase leading-none tracking-tight text-center w-full"
+        style={{ fontFamily: "var(--font-display)" }}
+      >
+        THE HEARTS OF LOA
+      </h2>
+
+      {/* Desktop */}
+      <div className="hidden md:flex w-full flex-row items-center min-h-[50vh] gap-0">
+        <div
+          className="flex flex-row items-center justify-center gap-6 transition-all duration-300"
+          style={{ width: selectedId ? "55%" : "100%" }}
         >
-          THE HEARTS OF LOA
-        </h2>
-        <div className="max-w-5xl flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap md:justify-center w-full items-center lg:justify-between gap-6">
           {TROPHIES.map((t) => (
-            <img
+            <button
               key={t.src}
-              src={t.src}
-              alt={t.alt}
-              className="h-40 lg:h-52 aspect-square object-contain hover:-translate-y-2 transition-transform duration-300 bg-white rounded-full"
-            />
+              onClick={() => handleTrophyClick(t.src)}
+              className="focus:outline-none"
+            >
+              <img
+                src={t.src}
+                alt={t.alt}
+                className="object-contain rounded-full bg-white transition-all duration-300"
+                style={{
+                  height: selectedId === t.src ? "14rem" : selectedId ? "9rem" : "13rem",
+                  boxShadow: selectedId === t.src ? `0 0 40px 8px ${t.color}88` : "none",
+                  transform: selectedId === t.src ? "scale(1.08)" : "scale(1)",
+                }}
+              />
+            </button>
           ))}
         </div>
-        <p className="mt-6 lg:text-[22px] leading-relaxed text-loa-purple mx-auto text-center max-w-6xl">
+
+        {selectedTrophy && (
+          <div
+            ref={panelRef}
+            className="flex flex-col justify-center px-12 py-10 rounded-3xl ml-6"
+            style={{
+              width: "45%",
+              backgroundColor: selectedTrophy.color,
+              color: selectedTrophy.textColor,
+              minHeight: "50vh",
+            }}
+          >
+            <div ref={panelContentRef} className="flex flex-col">
+              <p
+                className="text-xs uppercase tracking-[0.3em] opacity-60 mb-4"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Hearts of LOA
+              </p>
+              <h3
+                className="text-4xl lg:text-6xl uppercase leading-none mb-6"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {selectedTrophy.name}
+              </h3>
+              <p
+                className="text-base lg:text-lg leading-relaxed opacity-90 max-w-sm"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {selectedTrophy.description}
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Mobile */}
+      <div className="md:hidden w-full flex flex-col items-center gap-6">
+        <div className="grid grid-cols-2 gap-6 w-full">
+          {TROPHIES.map((t) => (
+            <button
+              key={t.src}
+              onClick={() => handleTrophyClick(t.src)}
+              className="flex flex-col items-center focus:outline-none"
+            >
+              <img
+                src={t.src}
+                alt={t.alt}
+                className="h-28 aspect-square object-contain rounded-full bg-white"
+              />
+            </button>
+          ))}
+        </div>
+
+        {selectedTrophy && (
+          <div
+            className="w-full rounded-2xl px-6 py-6 border-l-4"
+            style={{
+              borderColor: selectedTrophy.color,
+              backgroundColor: `${selectedTrophy.color}22`,
+            }}
+          >
+            <p className="font-display text-2xl text-loa-purple uppercase mb-2">
+              {selectedTrophy.name}
+            </p>
+            <p className="font-body text-sm text-loa-purple leading-relaxed opacity-80">
+              {selectedTrophy.description}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {!selectedId && (
+        <p className="mt-6 lg:text-[22px] leading-relaxed text-loa-purple mx-auto text-center max-w-6xl font-body">
           Inspired by the CMYK spectrum that brings creative expression to life,
           the Hearts of LOA honour work that stands apart for its originality,
           execution, and impact.
         </p>
-      </div>
+      )}
     </section>
   );
 }
