@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
 
 interface Trophy {
   src: string;
@@ -53,6 +54,26 @@ export default function Awards() {
   const selectedTrophy = TROPHIES.find((t) => t.src === selectedId) ?? null;
   const panelRef = useRef<HTMLDivElement>(null);
   const panelContentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (!panelRef.current || !selectedId) return;
+
+    // Panel slides in from right
+    gsap.fromTo(
+      panelRef.current,
+      { x: "100%", opacity: 0 },
+      { x: "0%", opacity: 1, duration: 0.55, ease: "power3.out" }
+    );
+
+    // Content children stagger up
+    if (panelContentRef.current) {
+      gsap.fromTo(
+        panelContentRef.current.children,
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.1, delay: 0.25 }
+      );
+    }
+  }, [selectedId]);
 
   const handleTrophyClick = (src: string) => {
     setSelectedId((prev) => (prev === src ? null : src));
