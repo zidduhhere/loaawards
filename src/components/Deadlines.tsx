@@ -27,6 +27,8 @@ export default function Deadlines() {
         duration: 1.2,
         ease: "power4.out",
         scrollTrigger: trigger,
+        willChange: "transform, opacity",
+        force3D: true,
       });
 
       // Date slams in from right with slight delay
@@ -37,6 +39,8 @@ export default function Deadlines() {
         ease: "power4.out",
         delay: 0.1,
         scrollTrigger: trigger,
+        willChange: "transform, opacity",
+        force3D: true,
       });
 
       // FINAL crashes in from left, staggered
@@ -47,6 +51,8 @@ export default function Deadlines() {
         ease: "power4.out",
         delay: 0.25,
         scrollTrigger: trigger,
+        willChange: "transform, opacity",
+        force3D: true,
       });
 
       // Second date from right, staggered
@@ -57,6 +63,8 @@ export default function Deadlines() {
         ease: "power4.out",
         delay: 0.35,
         scrollTrigger: trigger,
+        willChange: "transform, opacity",
+        force3D: true,
       });
 
       // Bottom fades up last
@@ -67,6 +75,8 @@ export default function Deadlines() {
         ease: "power3.out",
         delay: 0.5,
         scrollTrigger: trigger,
+        willChange: "transform, opacity",
+        force3D: true,
       });
     }, sectionRef);
 
@@ -113,7 +123,7 @@ export default function Deadlines() {
 
           <span
             ref={date1Ref}
-            className="font-display tabular-nums"
+            className="font-display block tabular-nums"
             style={{
               fontSize: "clamp(2.5rem, 10vw, 10rem)",
               letterSpacing: "-0.01em",

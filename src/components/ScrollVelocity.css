@@ -11,6 +11,9 @@
   font-size: 4rem;
   font-weight: bold;
   letter-spacing: -0.02em;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .scroller span {
