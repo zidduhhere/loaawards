@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
 
 interface Trophy {
   src: string;
@@ -51,6 +52,25 @@ const TROPHIES: Trophy[] = [
 export default function Awards() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selectedTrophy = TROPHIES.find((t) => t.src === selectedId) ?? null;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const panelContentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (!panelRef.current || !selectedId) return;
+    gsap.fromTo(
+      panelRef.current,
+      { x: "100%", opacity: 0 },
+      { x: "0%", opacity: 1, duration: 0.55, ease: "power3.out" }
+    );
+    if (panelContentRef.current) {
+      gsap.fromTo(
+        panelContentRef.current.children,
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.1, delay: 0.25 }
+      );
+    }
+  }, [selectedId]);
+
   const handleTrophyClick = (src: string) => {
     setSelectedId((prev) => (prev === src ? null : src));
   };
@@ -88,6 +108,8 @@ export default function Awards() {
                 className="object-contain rounded-full bg-white"
                 style={{
                   height: selectedId === t.src ? "14rem" : selectedId ? "9rem" : "13rem",
+                  boxShadow: selectedId === t.src ? `0 0 40px 8px ${t.color}88` : "none",
+                  transform: selectedId === t.src ? "scale(1.08)" : "scale(1)",
                 }}
               />
             </button>
@@ -96,7 +118,8 @@ export default function Awards() {
 
         {selectedTrophy && (
           <div
-            className="flex flex-col justify-center px-12 py-10 rounded-3xl ml-6"
+            ref={panelRef}
+          className="flex flex-col justify-center px-12 py-10 rounded-3xl ml-6"
             style={{
               width: "45%",
               backgroundColor: selectedTrophy.color,
@@ -104,7 +127,7 @@ export default function Awards() {
               minHeight: "50vh",
             }}
           >
-            <div className="flex flex-col">
+<div ref={panelContentRef} className="flex flex-col">
               <p
                 className="text-xs uppercase tracking-[0.3em] opacity-60 mb-4"
                 style={{ fontFamily: "var(--font-body)" }}
