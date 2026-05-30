@@ -5,6 +5,7 @@ type JuryMember = {
   src: string;
   name: string;
   position: string;
+  imageClassName?: string;
 };
 
 const JURY: JuryMember[] = [
@@ -32,6 +33,7 @@ const JURY: JuryMember[] = [
     src: "/assets/jury-5-anilkumar.png",
     name: "PK Anil Kumar",
     position: "Director\nCreative Excellence McCann",
+    imageClassName: "object-[center_20%]", // Usually better than bottom for portraits, or just use object-bottom
   },
   {
     src: "/assets/jury-7-sagar.png",
@@ -89,7 +91,7 @@ function JuryCard({ member, index }: { member: JuryMember; index: number }) {
             <img
               src={member.src}
               alt={member.name}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${member.imageClassName || ""}`}
               onError={(e) => {
                 // If image fails to load, let's at least hide the broken icon so the background color shows
                 e.currentTarget.style.display = 'none';

@@ -372,8 +372,19 @@ export default function FaultyTerminal({
     resizeObserver.observe(ctn);
     resize();
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    observer.observe(ctn);
+
     const update = (t: number) => {
       rafRef.current = requestAnimationFrame(update);
+
+      if (!isVisible) return; // Skip heavy WebGL rendering when offscreen
 
       if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
         loadAnimationStartRef.current = t;
@@ -414,6 +425,7 @@ export default function FaultyTerminal({
     if (mouseReact) ctn.addEventListener("mousemove", handleMouseMove);
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(rafRef.current);
       resizeObserver.disconnect();
       if (mouseReact) ctn.removeEventListener("mousemove", handleMouseMove);
