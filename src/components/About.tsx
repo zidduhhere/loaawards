@@ -46,12 +46,13 @@ const About = () => {
     <div
       ref={sectionRef}
       id="about"
-      className="relative w-screen min-h-screen flex-center px-24 md:px-48 overflow-hidden"
+      className="relative w-full min-h-screen flex-center overflow-hidden"
     >
+      <div className="w-full max-w-[1600px] mx-auto px-12 md:px-24 lg:px-48">
       <img
         src="/assets/logo-loa.png"
         alt="LOA Logo"
-        className="absolute top-6 right-8 h-32 object-contain z-10"
+        className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10"
       />
       <div className="text-loa-yellow font-display">
         <div className="flex flex-col md:flex-row md:flex-wrap md:items-center">
@@ -74,6 +75,7 @@ const About = () => {
           <p className="order-3 md:order-2 font-body text-base md:text-md w-100 gap-4 leading-7 md:leading-8 opacity-80 mt-4 md:mt-0 md:ml-12">
             {paragraph}
           </p>
+        </div>
         </div>
       </div>
     </div>

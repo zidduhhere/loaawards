@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS: { label: string; id: string }[] = [
-  { label: "HOME",        id: "home" },
-  { label: "CATEGORIES",  id: "categories" },
-  { label: "JURY MEMBERS",id: "jury" },
-  { label: "WINNERS",     id: "winners" },
-  { label: "SIGN IN",     id: "register" },
+  { label: "HOME", id: "home" },
+  { label: "CATEGORIES", id: "categories" },
+  { label: "JURY MEMBERS", id: "jury" },
+  { label: "WINNERS", id: "winners" },
+  { label: "SIGN IN", id: "register" },
 ];
 
 function scrollToSection(id: string) {
@@ -26,25 +26,31 @@ export default function Navbar() {
     scrollToSection(id);
   };
 
-  const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleMobileClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
     e.preventDefault();
     setMenuOpen(false);
     setTimeout(() => scrollToSection(id), 50);
   };
 
   return (
-    <nav className="absolute w-full top-5 z-50">
+    <nav className="absolute w-full top-10 z-50">
       {/* Desktop nav */}
-      <ul className="hidden md:flex list-none gap-20 items-center justify-center">
-        {NAV_LINKS.map(({ label, id }) => (
-          <li key={id}>
+      <ul className="hidden md:flex list-none items-center justify-center">
+        {NAV_LINKS.map(({ label, id }, index) => (
+          <li key={id} className="flex flex-row items-center">
             <a
               href={`#${id}`}
               onClick={(e) => handleClick(e, id)}
-              className="text-[14px] tracking-widest text-white font-body font-bold transition-colors"
+              className="text-[14px] tracking-widest text-white font-body font-bold transition-colors px-10"
             >
               {label}
             </a>
+            {index < NAV_LINKS.length - 1 && (
+              <div className="w-[2px] h-4 bg-red-400"></div>
+            )}
           </li>
         ))}
       </ul>

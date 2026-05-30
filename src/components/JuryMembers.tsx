@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FaultyTerminal from "./FaultyTerminal";
 
 type JuryMember = {
   src: string;
@@ -8,36 +9,49 @@ type JuryMember = {
 
 const JURY: JuryMember[] = [
   {
-    src: "/assets/1.png",
-    name: "Sarah Mitchell",
-    position: "Chief Creative Officer",
+    src: "/assets/jury-1-bobby.png",
+    name: "Bobby Pawar",
+    position: "Former Chairman\nHavas - Jury Chair",
   },
   {
-    src: "/assets/2.png",
-    name: "James Okafor",
-    position: "Executive Producer",
+    src: "/assets/jury-2-swarup.png",
+    name: "Swarup BR",
+    position: "Co-Founder\nStark Communications",
   },
   {
-    src: "/assets/4.png",
-    name: "Priya Nair",
-    position: "Global Strategy Director",
+    src: "/assets/jury-3-senthil.png",
+    name: "Senthil Kumar",
+    position: "CCO, VML",
   },
   {
-    src: "/assets/5.png",
-    name: "Marco Ferretti",
-    position: "Head of Brand Experience",
-  },
-  { src: "/assets/6.png", name: "Lena Bauer", position: "Creative Director" },
-  { src: "/assets/7.png", name: "Daniel Chow", position: "VP of Marketing" },
-  {
-    src: "/assets/8.png",
-    name: "Amara Diallo",
-    position: "Head of Design Innovation",
+    src: "/assets/jury-4-pooja.png",
+    name: "Pooja Manek",
+    position: "Founding Member\nTalented",
   },
   {
-    src: "/assets/9.png",
-    name: "Tom Reeves",
-    position: "Chief Marketing Officer",
+    src: "/assets/jury-5-anilkumar.png",
+    name: "PK Anil Kumar",
+    position: "Director\nCreative Excellence McCann",
+  },
+  {
+    src: "/assets/cyan.png", // Fallback for Nishad
+    name: "Nishad Ramachandran",
+    position: "Chief AI & Digital Officer\nVidzai",
+  },
+  {
+    src: "/assets/jury-7-sagar.png",
+    name: "Sagar Jadhav",
+    position: "ECD, Ogilvy",
+  },
+  {
+    src: "/assets/jury-8-anna.png",
+    name: "Anna Joseph",
+    position: "Independent Filmmaker",
+  },
+  {
+    src: "/assets/jury-9-krishnanunni.png",
+    name: "Krishnanunni",
+    position: "Creative Head, Ather Energy",
   },
 ];
 
@@ -50,42 +64,54 @@ const BG_COLORS = [
   "bg-loa-purple",
   "bg-loa-pink",
   "bg-loa-yellow",
+  "bg-loa-purple",
 ];
 
 function JuryCard({ member, index }: { member: JuryMember; index: number }) {
   const [flipped, setFlipped] = useState(false);
   const bg = BG_COLORS[index % BG_COLORS.length];
+  const isYellow = bg === "bg-loa-yellow";
+  const nameColor = isYellow ? "text-loa-black" : "text-loa-white";
+  const posColor = isYellow ? "text-loa-black" : "text-loa-white";
 
   return (
     <div
-      className={`col-span-1 sm:col-span-2 aspect-square ${index === 6 ? "md:col-start-2" : ""} perspective-[600px] cursor-pointer`}
+      className={`col-span-1 aspect-square w-full max-w-[280px] sm:max-w-none mx-auto cursor-pointer mt-10 group/jury`}
       onClick={() => setFlipped((f) => !f)}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >
       <div
-        className={`relative w-full h-full transform-3d transition-transform duration-500 ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
+        className={`w-full h-full rounded-full border-4 border-[#0A0A0A] shadow-[8px_8px_0px_#0A0A0A] transition-all duration-300 ease-out group-hover/jury:translate-x-[4px] group-hover/jury:translate-y-[4px] group-hover/jury:shadow-[0px_0px_0px_#0A0A0A] group-hover/jury:-rotate-3 perspective-[600px]`}
       >
-        {/* Front — photo */}
         <div
-          className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}
+          className={`relative w-full h-full [transform-style:preserve-3d] transition-transform duration-500 rounded-full ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
         >
-          <img
-            src={member.src}
-            alt={member.name}
-            className="w-full h-full object-cover object-bottom"
-          />
-        </div>
-        {/* Back — name & position */}
-        <div
-          className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${bg} flex flex-col items-center justify-center px-3 text-center`}
-        >
-          <p className="font-display text-loa-white text-xs sm:text-sm md:text-2xl leading-tight">
-            {member.name}
-          </p>
-          <p className="font-body text-loa-black text-[10px] sm:text-xs mt-1 opacity-80 leading-snug">
-            {member.position}
-          </p>
+          {/* Front — photo */}
+          <div
+            className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}
+          >
+            <img
+              src={member.src}
+              alt={member.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                // If image fails to load, let's at least hide the broken icon so the background color shows
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
+          {/* Back — name & position */}
+          <div
+            className={`absolute inset-0 rounded-full backface-hidden transform-[rotateY(180deg)] ${bg} flex flex-col items-center justify-center px-6 text-center`}
+          >
+            <p className={`font-display ${nameColor} text-xl sm:text-2xl md:text-3xl leading-none whitespace-pre-line`}>
+              {member.name}
+            </p>
+            <p className={`font-body ${posColor} text-sm sm:text-base md:text-base mt-3 font-bold leading-snug whitespace-pre-line`}>
+              {member.position}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -96,9 +122,35 @@ export default function JuryMembers() {
   return (
     <section
       id="jury"
-      className="bg-loa-black px-6 md:px-10 py-12 md:py-20 h-fit overflow-hidden"
+      className="relative bg-loa-black px-6 md:px-24 lg:px-48 pt-24 md:pt-36 pb-12 md:pb-20 h-fit overflow-hidden"
     >
-      <div className="flex flex-col md:flex-row mx-auto items-start md:items-center w-full md:w-fit gap-4 md:gap-8 mb-6">
+      <div className="absolute inset-0 z-0 hidden md:block">
+        <FaultyTerminal
+          scale={4.5}
+          gridMul={[2, 1]}
+          digitSize={1.2}
+          timeScale={1}
+          pause={false}
+          scanlineIntensity={1}
+          glitchAmount={1}
+          flickerAmount={1}
+          noiseAmp={0.1}
+          chromaticAberration={0}
+          dither={0}
+          curvature={0}
+          tint="#FF0000"
+          mouseReact={true}
+          mouseStrength={0.5}
+          pageLoadAnimation={false}
+          brightness={1}
+        />
+      </div>
+      <img
+        src="/assets/logo-loa.png"
+        alt="LOA Logo"
+        className="hidden md:block absolute top-6 right-8 h-32 object-contain z-20 pointer-events-none"
+      />
+      <div className="relative z-10 flex flex-col md:flex-row mx-auto items-start md:items-center w-full md:w-fit gap-4 md:gap-8 mb-6 pointer-events-none">
         <span className="flex-2 font-display text-loa-yellow text-[15vw] md:text-8xl leading-20">
           <span className="text-[15vw]">JURY</span> <br /> MEMBERS
         </span>
@@ -108,7 +160,7 @@ export default function JuryMembers() {
           truly connect.
         </p>
       </div>
-      <div className="px-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-10 max-w-5xl mx-auto">
+      <div className="relative z-10 mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 max-w-5xl mx-auto w-full">
         {JURY.map((member, i) => (
           <JuryCard key={i} member={member} index={i} />
         ))}

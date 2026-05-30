@@ -7,8 +7,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: 'Glodok';
-  src: url('/fonts/glodok.otf') format('opentype');
+  font-family: 'Uber';
+  src: url('/fonts/uber-font.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,7 +28,7 @@
 }
 
 @theme {
-  --font-display: 'Glodok', sans-serif;
+  --font-display: 'Uber', sans-serif;
   --font-body: 'Gotham', sans-serif;
 
   /* LOA 2026 Brand Colors */
@@ -52,7 +52,7 @@ html::-webkit-scrollbar {
 body {
   font-family: var(--font-body);
   background: var(--color-loa-black);
-
+  cursor: url('/assets/love-icon-small.svg'), auto;
 }
 
 .flex-center {

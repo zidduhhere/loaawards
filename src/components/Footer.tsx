@@ -53,7 +53,7 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#FF1493" }}>
       {/* Big wordmark band */}
-      <div className="overflow-hidden border-b border-black/10 py-6 px-6 md:px-16">
+      <div className="overflow-hidden border-b border-black/10 py-6 px-24 md:px-48">
         <p
           className="text-black/10 uppercase leading-none select-none"
           style={{
@@ -67,7 +67,7 @@ export default function Footer() {
       </div>
 
       {/* Main content grid */}
-      <div className="px-6 md:px-16 pt-12 pb-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="px-24 md:px-48 pt-12 pb-8 grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* Brand col */}
         <div className="md:col-span-1 flex flex-col gap-5">
@@ -161,15 +161,14 @@ export default function Footer() {
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
-          <div className="mt-2 rounded-xl border border-black/15 p-4 flex flex-col gap-1">
-            <p className="text-black/50 text-[10px] uppercase tracking-wider" style={{ fontFamily: "var(--font-display)" }}>Judging Criteria</p>
-            <p className="text-black/70 text-xs leading-relaxed">Expertly executed · Contextually relevant · Driven by an inspiring idea</p>
+          <div className="mt-4">
+            <img src="/act-logo.png" alt="ACT Logo" className="h-12 object-contain mix-blend-multiply" />
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-black/10 px-6 md:px-16 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+      <div className="border-t border-black/10 px-24 md:px-48 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-black/50 text-xs">
           © {new Date().getFullYear()} LOA Awards · Advertising Club Trivandrum. All rights reserved.
         </p>
