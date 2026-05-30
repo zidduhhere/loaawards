@@ -7,6 +7,7 @@ interface Trophy {
   name: string;
   color: string;
   textColor: string;
+  bgColor: string;
   description: string;
 }
 
@@ -17,6 +18,7 @@ const TROPHIES: Trophy[] = [
     name: "Black Heart",
     color: "#1a1a1a",
     textColor: "#FFE600",
+    bgColor: "#FFE600",
     description:
       "The highest honour. Awarded for work of extraordinary originality that redefines what advertising can be. Reserved for ideas that are not just great — but genuinely new.",
   },
@@ -26,6 +28,7 @@ const TROPHIES: Trophy[] = [
     name: "Cyan Heart",
     color: "#00B4D8",
     textColor: "#0a0a0a",
+    bgColor: "#5B1BE8",
     description:
       "Recognising ideas with exceptional clarity and creative precision that cut through noise with purpose. Work that communicates with intelligence and intention.",
   },
@@ -35,6 +38,7 @@ const TROPHIES: Trophy[] = [
     name: "Magenta Heart",
     color: "#FF2D8B",
     textColor: "#FFE600",
+    bgColor: "#0A0A0A",
     description:
       "Celebrating bold, fearless creative risk-taking that commands attention and sparks emotion. For work that dares to be different and earns its audience's admiration.",
   },
@@ -44,6 +48,7 @@ const TROPHIES: Trophy[] = [
     name: "Yellow Heart",
     color: "#FFE600",
     textColor: "#1a1a1a",
+    bgColor: "#5B1BE8",
     description:
       "Honouring work driven by pure passion for the craft — ideas born from genuine love for advertising. For the work that reminds everyone why they got into this industry.",
   },
@@ -112,8 +117,9 @@ export default function Awards() {
               <img
                 src={t.src}
                 alt={t.alt}
-                className="w-32 h-32 object-contain rounded-full bg-white"
+                className="object-contain aspect-square rounded-full"
                 style={{
+                  backgroundColor: t.bgColor,
                   height:
                     selectedId === t.src
                       ? "14rem"
@@ -176,7 +182,8 @@ export default function Awards() {
               <img
                 src={t.src}
                 alt={t.alt}
-                className="h-28 aspect-square object-contain rounded-full bg-white"
+                className="h-28 aspect-square object-contain rounded-full"
+                style={{ backgroundColor: t.bgColor }}
               />
             </button>
           ))}
