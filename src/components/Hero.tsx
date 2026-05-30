@@ -23,13 +23,17 @@ export default function Hero() {
       {/* Desktop: video background */}
       <video
         ref={videoRef}
-        src="/assets/lloa-hero-video.mp4"
         className="hidden md:block absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
+        loop
         playsInline
         preload="auto"
-      />
+        // poster="/assets/hero-poster.jpg" // Add a lightweight screenshot of the first frame here to fix perceived loading lag!
+      >
+        <source src="/assets/loa_hero_viideowe.webm" type="video/webm" />
+        <source src="/assets/lloa-hero-video.mp4" type="video/mp4" />
+      </video>
 
       {/* Mobile: purple background with LOA logo */}
       <div className="md:hidden absolute inset-0 bg-loa-purple flex flex-col items-center justify-center overflow-hidden">

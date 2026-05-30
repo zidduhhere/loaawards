@@ -1,25 +1,29 @@
+import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Deadlines from "./components/Deadlines";
-import Awards from "./components/Awards";
-import Categories from "./components/Categories";
-import JuryMembers from "./components/JuryMembers";
-import Winners from "./components/Winners";
-import Footer from "./components/Footer";
+
+const About = lazy(() => import("./components/About"));
+const Deadlines = lazy(() => import("./components/Deadlines"));
+const Awards = lazy(() => import("./components/Awards"));
+const Categories = lazy(() => import("./components/Categories"));
+const JuryMembers = lazy(() => import("./components/JuryMembers"));
+const Winners = lazy(() => import("./components/Winners"));
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   return (
     <div className="w-screen">
       <Navbar />
       <Hero />
-      <About />
-      <Deadlines />
-      <Awards />
-      <Categories />
-      <JuryMembers />
-      <Winners />
-      <Footer />
+      <Suspense fallback={null}>
+        <About />
+        <Deadlines />
+        <Awards />
+        <Categories />
+        <JuryMembers />
+        <Winners />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
