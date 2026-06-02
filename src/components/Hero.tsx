@@ -3,6 +3,8 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import ScrollVelocity from "./ScrollVelocity";
 
+let hasPlayedOnce = false;
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -10,7 +12,16 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
+    if (hasPlayedOnce) {
+      // If it already played this session, seek to end and pause
+      video.currentTime = 9999; 
+    } else {
+      // Otherwise play it
+      video.play().catch(() => {});
+    }
+
     const handleEnded = () => {
+      hasPlayedOnce = true;
       document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -24,14 +35,16 @@ export default function Hero() {
       <video
         ref={videoRef}
         className="hidden md:block absolute inset-0 w-full h-full object-cover"
-        autoPlay
         muted
         playsInline
+        loop={false}
         preload="auto"
         // poster="/assets/hero-poster.jpg" // Add a lightweight screenshot of the first frame here to fix perceived loading lag!
       >
-        <source src="https://loa-awards-content-network.b-cdn.net/loa_hero_viideowe.webm" type="video/webm" />
-        <source src="https://loa-awards-content-network.b-cdn.net/lloa-hero-video.mp4" type="video/mp4" />
+        <source
+          src="https://loa-awards-content-network.b-cdn.net/loa_hero_viideowe.webm"
+          type="video/webm"
+        />
       </video>
 
       {/* Mobile: purple background with LOA logo */}
@@ -63,11 +76,16 @@ export default function Hero() {
         />
 
         {/* Kinetic Tickers Below Logo */}
-        <motion.div 
+        <motion.div
           className="w-full flex flex-col justify-center gap-8 z-0"
           initial={{ y: 150, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 100, damping: 20 }}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+          }}
         >
           <div className="w-full bg-loa-yellow py-4 sm:py-5 -rotate-3 scale-110 shadow-xl border-y-4 border-[#0A0A0A]">
             <ScrollVelocity

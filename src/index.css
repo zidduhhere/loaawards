@@ -8,21 +8,21 @@
 
 @font-face {
   font-family: 'Glodok';
-  src: url('/fonts/glodok.otf') format('opentype');
+  src: url('https://loa-awards-content-network.b-cdn.net/glodok.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gotham';
-  src: url('/fonts/Gotham Book.otf') format('opentype');
+  src: url('https://loa-awards-content-network.b-cdn.net/Gotham%20Book.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gotham';
-  src: url('/fonts/Gotham-Medium.otf') format('opentype');
+  src: url('https://loa-awards-content-network.b-cdn.net/Gotham-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
