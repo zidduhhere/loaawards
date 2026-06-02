@@ -61,7 +61,7 @@ export default function Awards() {
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-6 md:gap-8 max-w-7xl mx-auto relative z-10">
         {TROPHIES.map((t) => (
           <div key={t.src} className="flex flex-col items-center w-full">
-            <div className="relative w-full sm:max-w-none mx-auto aspect-square rounded-full bg-white transition-transform duration-300 ease-out hover:-translate-y-2 flex items-center justify-center">
+            <div className="relative w-2/3 max-w-[240px] sm:w-full sm:max-w-none mx-auto aspect-square rounded-full bg-white transition-transform duration-300 ease-out hover:-translate-y-2 flex items-center justify-center">
               <img
                 src={t.src}
                 alt={t.alt}
