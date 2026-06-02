@@ -14,7 +14,7 @@ export default function Hero() {
 
     if (hasPlayedOnce) {
       // If it already played this session, seek to end and pause
-      video.currentTime = 9999; 
+      video.currentTime = 9999;
     } else {
       // Otherwise play it
       video.play().catch(() => {});
@@ -87,14 +87,14 @@ export default function Hero() {
             damping: 20,
           }}
         >
-          <div className="w-full bg-loa-yellow py-4 sm:py-5 -rotate-3 scale-110 shadow-xl border-y-4 border-[#0A0A0A]">
+          <div className="w-full bg-loa-yellow py-4 sm:py-5 -rotate-3 scale-110 shadow-xl border-y-4 border-loa-black">
             <ScrollVelocity
               texts={["FOR THE LOVE OF CREATIVITY"]}
               velocity={80}
               className="text-loa-purple font-display tracking-widest font-bold text-3xl uppercase px-4"
             />
           </div>
-          <div className="w-full bg-loa-pink py-4 sm:py-5 rotate-2 scale-110 shadow-xl border-y-4 border-[#0A0A0A]">
+          <div className="w-full bg-loa-pink py-4 sm:py-5 rotate-2 scale-110 shadow-xl border-y-4 border-loa-black">
             <ScrollVelocity
               texts={["THE HEARTS OF LOA"]}
               velocity={-80}
@@ -102,6 +102,19 @@ export default function Hero() {
             />
           </div>
         </motion.div>
+
+        {/* Mobile Apply Now CTA */}
+        <motion.a
+          href="https://loaawards.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, type: "spring" }}
+          className="mt-10 text-[14px] tracking-widest bg-loa-yellow text-loa-purple font-body font-bold transition-transform hover:scale-105 px-8 py-3 rounded-full shadow-lg text-center z-10"
+        >
+          APPLY NOW
+        </motion.a>
       </div>
 
       {/* ACT logo */}
