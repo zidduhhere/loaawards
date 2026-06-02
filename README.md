@@ -1,76 +1,47 @@
-# React + TypeScript + Vite
+# LOA Awards Website 🏆
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the official **LOA Awards** website repository! This is a modern, high-performance landing page built for the LOA 2026 Awards, recognizing the best and brightest.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** React 19 + TypeScript
+- **Bundler:** Vite
+- **Styling:** Tailwind CSS (v4)
+- **Animations:** GSAP (`@gsap/react`), WebGL (OGL)
+- **Deployment:** Vercel (recommended)
 
-## React Compiler
+## ⚡ Performance Optimizations
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+This website has been heavily optimized for performance and Core Web Vitals following React best practices:
 
-Note: This will impact Vite dev & build performances.
+1. **Global CDN Delivery:** All media assets (images, videos) are served via a Bunny.net Content Delivery Network (`loa-awards-content-network.b-cdn.net`) for fast, global delivery.
+2. **Intelligent Resource Loading:** 
+   - Above-the-fold assets (e.g., hero logos) use `fetchPriority="high"` and `decoding="sync"` to optimize the Largest Contentful Paint (LCP).
+   - Below-the-fold images utilize native `loading="lazy"` and `decoding="async"` to conserve bandwidth and accelerate initial page loads.
+3. **Code Splitting:** Heavy interactive elements, such as the WebGL `<FaultyTerminal>` background, are code-split and lazy-loaded via `React.lazy` and `Suspense`, preventing them from blocking the main thread during initial load.
+4. **Optimized Animations:** All GSAP animations are managed via the `@gsap/react` `useGSAP` hook for automated cleanup and strict mode compatibility, preventing memory leaks.
 
-## Expanding the ESLint configuration
+## 🛠️ Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To run this project locally:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Install dependencies
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Start the development server
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/components/`: Contains all UI sections (Hero, About, Categories, Deadlines, Jury, etc.).
+- `src/index.css`: Tailwind configuration and global styles.
+- `public/`: Static assets (Note: bulk media is hosted on the CDN).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# loaawards
+---
+
+*“If you believe in the power of what you create, this is your moment to share it with the world and let it shine.”*

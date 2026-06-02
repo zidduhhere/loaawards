@@ -7,8 +7,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: 'Uber';
-  src: url('/fonts/uber-font.otf') format('opentype');
+  font-family: 'Glodok';
+  src: url('/fonts/glodok.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,7 +28,7 @@
 }
 
 @theme {
-  --font-display: 'Uber', sans-serif;
+  --font-display: 'Glodok', sans-serif;
   --font-body: 'Gotham', sans-serif;
 
   /* LOA 2026 Brand Colors */

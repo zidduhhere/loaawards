@@ -26,13 +26,12 @@ export default function Hero() {
         className="hidden md:block absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
         // poster="/assets/hero-poster.jpg" // Add a lightweight screenshot of the first frame here to fix perceived loading lag!
       >
-        <source src="/assets/loa_hero_viideowe.webm" type="video/webm" />
-        <source src="/assets/lloa-hero-video.mp4" type="video/mp4" />
+        <source src="https://loa-awards-content-network.b-cdn.net/loa_hero_viideowe.webm" type="video/webm" />
+        <source src="https://loa-awards-content-network.b-cdn.net/lloa-hero-video.mp4" type="video/mp4" />
       </video>
 
       {/* Mobile: purple background with LOA logo */}
@@ -41,10 +40,21 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-loa-pink rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-loa-yellow rounded-full blur-[80px] opacity-20 mix-blend-screen pointer-events-none" />
 
+        {/* ACT Logo Mobile */}
+        <img
+          src="https://loa-awards-content-network.b-cdn.net/act-logo.png"
+          alt="ACT Logo"
+          fetchPriority="high"
+          decoding="sync"
+          className="h-10 mb-6 relative z-10 object-contain"
+        />
+
         {/* Heavy Stamp Logo */}
         <motion.img
-          src="/assets/hero-full.svg"
+          src="https://loa-awards-content-network.b-cdn.net/hero-full.svg"
           alt="LOA Awards"
+          fetchPriority="high"
+          decoding="sync"
           className="max-w-[80vw] mb-12 relative z-10 filter drop-shadow-2xl cursor-pointer"
           initial={{ scale: 3, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -78,9 +88,11 @@ export default function Hero() {
 
       {/* ACT logo */}
       <img
-        src="/act-logo.png"
+        src="https://loa-awards-content-network.b-cdn.net/act-logo.png"
         alt="ACT Logo"
-        className="hidden md:block absolute top-6 right-8 h-10 object-contain z-10"
+        fetchPriority="high"
+        decoding="sync"
+        className="hidden md:block absolute md:top-24 lg:top-6 md:right-6 lg:right-8 h-8 lg:h-10 object-contain z-10"
       />
 
       {/* Scroll indicator */}

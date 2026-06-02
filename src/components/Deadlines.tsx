@@ -1,5 +1,6 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,76 +13,72 @@ export default function Deadlines() {
   const date2Ref = useRef<HTMLSpanElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const trigger = {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        toggleActions: "play none none reverse",
-      };
+  useGSAP(() => {
+    const trigger = {
+      trigger: sectionRef.current,
+      start: "top 75%",
+      toggleActions: "play none none reverse",
+    };
 
-      // EARLY BIRD crashes in from left
-      gsap.from(earlyRef.current, {
-        x: "-110%",
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: trigger,
-        willChange: "transform, opacity",
-        force3D: true,
-      });
+    // EARLY BIRD crashes in from left
+    gsap.from(earlyRef.current, {
+      x: "-110%",
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      scrollTrigger: trigger,
+      willChange: "transform, opacity",
+      force3D: true,
+    });
 
-      // Date slams in from right with slight delay
-      gsap.from(date1Ref.current, {
-        x: "110%",
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.1,
-        scrollTrigger: trigger,
-        willChange: "transform, opacity",
-        force3D: true,
-      });
+    // Date slams in from right with slight delay
+    gsap.from(date1Ref.current, {
+      x: "110%",
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      delay: 0.1,
+      scrollTrigger: trigger,
+      willChange: "transform, opacity",
+      force3D: true,
+    });
 
-      // FINAL crashes in from left, staggered
-      gsap.from(finalRef.current, {
-        x: "-110%",
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.25,
-        scrollTrigger: trigger,
-        willChange: "transform, opacity",
-        force3D: true,
-      });
+    // FINAL crashes in from left, staggered
+    gsap.from(finalRef.current, {
+      x: "-110%",
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      delay: 0.25,
+      scrollTrigger: trigger,
+      willChange: "transform, opacity",
+      force3D: true,
+    });
 
-      // Second date from right, staggered
-      gsap.from(date2Ref.current, {
-        x: "110%",
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.35,
-        scrollTrigger: trigger,
-        willChange: "transform, opacity",
-        force3D: true,
-      });
+    // Second date from right, staggered
+    gsap.from(date2Ref.current, {
+      x: "110%",
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      delay: 0.35,
+      scrollTrigger: trigger,
+      willChange: "transform, opacity",
+      force3D: true,
+    });
 
-      // Bottom fades up last
-      gsap.from(bottomRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.5,
-        scrollTrigger: trigger,
-        willChange: "transform, opacity",
-        force3D: true,
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+    // Bottom fades up last
+    gsap.from(bottomRef.current, {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.5,
+      scrollTrigger: trigger,
+      willChange: "transform, opacity",
+      force3D: true,
+    });
+  }, { scope: sectionRef });
 
   return (
     <section
@@ -89,9 +86,11 @@ export default function Deadlines() {
       className="relative w-full min-h-[60vh] md:min-h-screen bg-loa-pink text-loa-yellow flex flex-col overflow-hidden py-12 md:py-0"
     >
       <img
-        src="/assets/logo-loa.webp"
+        src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
         alt="LOA Logo"
-        className="hidden md:block absolute top-6 right-6 h-28 md:h-32 object-contain z-20 pointer-events-none"
+        loading="lazy"
+        decoding="async"
+        className="hidden md:block absolute md:top-4 md:right-4 md:h-20 lg:top-6 lg:right-8 lg:h-32 object-contain z-20 pointer-events-none"
       />
 
       {/* ── Deadline rows ── */}
@@ -100,9 +99,9 @@ export default function Deadlines() {
         <div className="flex flex-row items-center justify-between">
           <div ref={earlyRef} className="flex flex-col">
             <span
-              className="font-display block"
+              className="font-display block whitespace-nowrap"
               style={{
-                fontSize: "clamp(2.5rem, 10vw, 10rem)",
+                fontSize: "clamp(2rem, 8vw, 10rem)",
                 letterSpacing: "-0.01em",
                 lineHeight: 0.88,
               }}
@@ -110,9 +109,9 @@ export default function Deadlines() {
               EARLY
             </span>
             <span
-              className="font-display block"
+              className="font-display block whitespace-nowrap"
               style={{
-                fontSize: "clamp(3.1rem, 12.5vw, 12.5rem)",
+                fontSize: "clamp(2.5rem, 10vw, 12.5rem)",
                 letterSpacing: "0.025em",
                 lineHeight: 0.88,
               }}
@@ -123,14 +122,14 @@ export default function Deadlines() {
 
           <span
             ref={date1Ref}
-            className="font-display block tabular-nums"
+            className="font-display flex items-center tabular-nums whitespace-nowrap"
             style={{
-              fontSize: "clamp(2.5rem, 10vw, 10rem)",
+              fontSize: "clamp(2rem, 8vw, 10rem)",
               letterSpacing: "-0.01em",
               lineHeight: 0.88,
             }}
           >
-            25 / 10
+            25 <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] opacity-60">/</span> 10
           </span>
         </div>
 
@@ -140,9 +139,9 @@ export default function Deadlines() {
         <div className="flex flex-row items-end justify-between">
           <span
             ref={finalRef}
-            className="font-display block"
+            className="font-display block whitespace-nowrap"
             style={{
-              fontSize: "clamp(2.5rem, 10vw, 10rem)",
+              fontSize: "clamp(2rem, 8vw, 10rem)",
               letterSpacing: "-0.01em",
               lineHeight: 0.88,
             }}
@@ -151,14 +150,14 @@ export default function Deadlines() {
           </span>
           <span
             ref={date2Ref}
-            className="font-display block tabular-nums"
+            className="font-display flex items-center tabular-nums whitespace-nowrap"
             style={{
-              fontSize: "clamp(2.5rem, 10vw, 10rem)",
+              fontSize: "clamp(2rem, 8vw, 10rem)",
               letterSpacing: "-0.01em",
               lineHeight: 0.88,
             }}
           >
-            14 / 12
+            14 <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] opacity-60">/</span> 12
           </span>
         </div>
       </div>

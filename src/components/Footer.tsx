@@ -162,7 +162,7 @@ export default function Footer() {
             </svg>
           </a>
           <div className="mt-4">
-            <img src="/act-logo.png" alt="ACT Logo" className="h-12 object-contain mix-blend-multiply" />
+            <img src="https://loa-awards-content-network.b-cdn.net/act-logo.png" alt="ACT Logo" loading="lazy" decoding="async" className="h-12 object-contain mix-blend-multiply" />
           </div>
         </div>
       </div>

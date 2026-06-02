@@ -181,7 +181,10 @@ export default function Categories() {
 
   const scroll = (dir: "left" | "right") => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir === "right" ? 200 : -200, behavior: "smooth" });
+      scrollRef.current.scrollBy({
+        left: dir === "right" ? 200 : -200,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -198,9 +201,15 @@ export default function Categories() {
   return (
     <section
       id="categories"
-      className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-6 pb-16 overflow-hidden"
+      className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-12 pb-16 overflow-hidden"
     >
-      <img src="/assets/logo-loa.webp" alt="LOA Logo" className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10" />
+      <img
+        src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
+        alt="LOA Logo"
+        loading="lazy"
+        decoding="async"
+        className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10"
+      />
       <div className="max-w-6xl mx-auto w-full flex flex-col items-center gap-8">
         {/* Heading */}
         <h2
@@ -211,9 +220,9 @@ export default function Categories() {
         </h2>
 
         <p className="text-sm leading-relaxed text-white/70 text-center max-w-2xl">
-          Work released in India between 1 January 2025 and 1 January 2026. Any entity involved
-          in the creation - agency, client, production house, or individual - may enter subject to
-          meeting the entry criteria.
+          Work released in India between 1 January 2025 and 1 January 2026. Any
+          entity involved in the creation - agency, client, production house, or
+          individual - may enter subject to meeting the entry criteria.
         </p>
 
         {/* Search bar */}
@@ -261,30 +270,35 @@ export default function Categories() {
           )}
         </div>
 
-        {/* Filter tabs */}
-        <div className="relative w-full flex items-center gap-2">
+        {/* Filter tabs (Neo-Brutalist Design) */}
+        <div className="relative w-full flex items-center gap-4 py-6">
           {/* Left arrow */}
           <button
             onClick={() => scroll("left")}
-            className="shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200 bg-white/5"
+            className="shrink-0 w-12 h-12 rounded bg-loa-white border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 hover:-translate-x-0.5 active:shadow-[0px_0px_0px_#0A0A0A] active:translate-y-1 active:translate-x-1 flex items-center justify-center text-loa-black transition-all duration-200 z-20"
             aria-label="Scroll left"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
 
           {/* Scrollable row */}
           <div className="relative flex-1 min-w-0">
-            {/* Left fade */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-8 z-10"
-              style={{ background: "linear-gradient(to right, #5B1BE8, transparent)" }} />
-            {/* Right fade */}
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-8 z-10"
-              style={{ background: "linear-gradient(to left, #5B1BE8, transparent)" }} />
-
-            <div ref={scrollRef} className="overflow-x-auto no-scrollbar px-2">
-              <div className="flex gap-2 pb-1 min-w-max">
+            <div
+              ref={scrollRef}
+              className="overflow-x-auto no-scrollbar px-2 py-4"
+            >
+              <div className="flex gap-4 md:gap-6 min-w-max">
                 {filters.map((f) => {
                   const isActive = activeFilter === f;
                   const group = CATEGORY_GROUPS.find((g) => g.title === f);
@@ -293,19 +307,20 @@ export default function Categories() {
                     <button
                       key={f}
                       onClick={() => setActiveFilter(f)}
-                      className="shrink-0 px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all duration-200 border"
+                      className={`relative shrink-0 rounded px-6 py-3 uppercase tracking-widest text-sm md:text-base font-bold transition-all duration-300 border-4 border-loa-black ${
+                        isActive
+                          ? "shadow-[6px_6px_0px_#0A0A0A] -translate-y-1 -translate-x-1 -rotate-2"
+                          : "shadow-[2px_2px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 hover:-rotate-1 opacity-90 hover:opacity-100"
+                      }`}
                       style={{
                         fontFamily: "var(--font-display)",
-                        backgroundColor: isActive ? accentColor : "transparent",
+                        backgroundColor: isActive ? accentColor : "#FFFFFF",
                         color: isActive
                           ? (group?.textColor ?? "#5B1BE8")
-                          : "rgba(255,255,255,0.6)",
-                        borderColor: isActive
-                          ? accentColor
-                          : "rgba(255,255,255,0.2)",
+                          : "#0A0A0A",
                       }}
                     >
-                      {f === "All" ? "All" : f.replace("For the Love of ", "")}
+                      {f === "All" ? "ALL" : f.replace("For the Love of ", "")}
                     </button>
                   );
                 })}
@@ -316,10 +331,19 @@ export default function Categories() {
           {/* Right arrow */}
           <button
             onClick={() => scroll("right")}
-            className="shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200 bg-white/5"
+            className="shrink-0 w-12 h-12 rounded bg-loa-white border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 hover:-translate-x-0.5 active:shadow-[0px_0px_0px_#0A0A0A] active:translate-y-1 active:translate-x-1 flex items-center justify-center text-loa-black transition-all duration-200 z-20"
             aria-label="Scroll right"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
@@ -329,7 +353,10 @@ export default function Categories() {
         {activeFilter !== "All" && (
           <div className="w-full max-w-3xl text-center px-4 mt-2 mb-4">
             <p className="text-white/80 text-sm md:text-base leading-relaxed">
-              {CATEGORY_GROUPS.find((g) => g.title === activeFilter)?.description}
+              {
+                CATEGORY_GROUPS.find((g) => g.title === activeFilter)
+                  ?.description
+              }
             </p>
           </div>
         )}
@@ -356,18 +383,17 @@ export default function Categories() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/card relative aspect-square w-full max-w-[220px] cursor-pointer group-hover/grid:opacity-40 group-hover/grid:scale-[0.98] hover:opacity-100! hover:scale-100!"
-                  style={{
-                    '--card-bg': group.color,
-                    '--card-fg': group.textColor,
-                    '--card-border': group.color === '#FFE600' ? '#0A0A0A' : group.textColor,
-                  } as React.CSSProperties}
+                  style={
+                    {
+                      "--card-bg": group.color,
+                      "--card-fg": group.textColor,
+                      "--card-border":
+                        group.color === "#FFE600" ? "#0A0A0A" : group.textColor,
+                    } as React.CSSProperties
+                  }
                 >
-                  <div
-                    className="absolute inset-0 rounded-full border-4 border-[var(--card-border)] bg-[var(--card-bg)] p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_var(--card-border)] transition-all duration-200 ease-out group-hover/card:translate-x-[4px] group-hover/card:translate-y-[4px] group-hover/card:shadow-[0px_0px_0px_var(--card-border)] group-hover/card:-rotate-3"
-                  >
-                    <h3
-                      className="font-display text-[var(--card-fg)] flex flex-col items-center justify-center uppercase leading-tight w-full px-1 mb-2 sm:mb-3"
-                    >
+                  <div className="absolute inset-0 rounded-full border-4 border-(--card-border) bg-(--card-bg) p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_var(--card-border)] transition-all duration-200 ease-out group-hover/card:translate-x-[4px] group-hover/card:translate-y-[4px] group-hover/card:shadow-[0px_0px_0px_var(--card-border)] group-hover/card:-rotate-3">
+                    <h3 className="font-display text-(--card-fg) flex flex-col items-center justify-center uppercase leading-tight w-full px-1 mb-2 sm:mb-3">
                       <span className="text-sm sm:text-base md:text-lg truncate w-full text-center">
                         {mainTitle}
                       </span>
@@ -377,10 +403,8 @@ export default function Categories() {
                         </span>
                       )}
                     </h3>
-                    
-                    <span
-                      className="rounded-full border-2 border-[var(--card-border)] bg-[var(--card-fg)] text-[var(--card-bg)] px-2.5 py-1 sm:px-4 sm:py-1.5 font-body text-[8px] sm:text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-200 group-hover/card:bg-[var(--card-bg)] group-hover/card:text-[var(--card-fg)]"
-                    >
+
+                    <span className="rounded-full border-2 border-(--card-border) bg-(--card-fg) text-(--card-bg) px-2.5 py-1 sm:px-4 sm:py-1.5 font-body text-[8px] sm:text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-200 group-hover/card:bg-(--card-bg) group-hover/card:text-(--card-fg)">
                       Apply Here
                     </span>
                   </div>
