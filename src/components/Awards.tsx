@@ -1,5 +1,4 @@
-import { lazy, Suspense } from "react";
-const FaultyTerminal = lazy(() => import("./FaultyTerminal"));
+
 
 const TROPHIES = [
   { src: "https://loa-awards-content-network.b-cdn.net/black.webp", alt: "Black Heart", bg: "bg-loa-pink" },
@@ -11,30 +10,7 @@ const TROPHIES = [
 export default function Awards() {
   return (
     <section className="relative bg-loa-yellow px-6 md:px-24 lg:px-48 py-24 md:py-32 flex flex-col justify-start items-center overflow-hidden min-h-screen">
-      <div className="absolute inset-0 z-0 hidden md:block">
-        <Suspense fallback={null}>
-          <FaultyTerminal
-            scale={4.5}
-            gridMul={[2, 1]}
-            digitSize={1.2}
-            timeScale={1}
-            pause={false}
-            scanlineIntensity={1}
-            glitchAmount={1}
-            flickerAmount={1}
-            noiseAmp={0.1}
-            chromaticAberration={0}
-            dither={0}
-            curvature={0}
-            tint="#FF0000"
-            backgroundColor="#FFE600"
-            mouseReact={true}
-            mouseStrength={1.0}
-            pageLoadAnimation={false}
-            brightness={1}
-          />
-        </Suspense>
-      </div>
+
       <img
         src="https://loa-awards-content-network.b-cdn.net/logo-loa-black.webp"
         alt="LOA Logo"

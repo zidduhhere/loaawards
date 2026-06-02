@@ -203,13 +203,15 @@ export default function Categories() {
       id="categories"
       className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-12 pb-16 overflow-hidden"
     >
-      <img
-        src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
-        alt="LOA Logo"
-        loading="lazy"
-        decoding="async"
-        className="hidden md:block absolute top-6 right-8 h-32 object-contain z-10"
-      />
+      <div className="hidden md:flex justify-end w-full mb-12">
+        <img
+          src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
+          alt="LOA Logo"
+          loading="lazy"
+          decoding="async"
+          className="h-32 object-contain"
+        />
+      </div>
       <div className="max-w-6xl mx-auto w-full flex flex-col items-center gap-8">
         {/* Heading */}
         <h2

@@ -1,5 +1,4 @@
-import { useState, lazy, Suspense } from "react";
-const FaultyTerminal = lazy(() => import("./FaultyTerminal"));
+import { useState } from "react";
 
 type JuryMember = {
   src: string;
@@ -127,29 +126,7 @@ export default function JuryMembers() {
       id="jury"
       className="relative bg-loa-black px-6 md:px-24 lg:px-48 pt-24 md:pt-36 pb-12 md:pb-20 h-fit overflow-hidden"
     >
-      <div className="absolute inset-0 z-0 hidden md:block">
-        <Suspense fallback={null}>
-          <FaultyTerminal
-            scale={4.5}
-            gridMul={[2, 1]}
-            digitSize={1.2}
-            timeScale={1}
-            pause={false}
-            scanlineIntensity={1}
-            glitchAmount={1}
-            flickerAmount={1}
-            noiseAmp={0.1}
-            chromaticAberration={0}
-            dither={0}
-            curvature={0}
-            tint="#FF0000"
-            mouseReact={true}
-            mouseStrength={0.5}
-            pageLoadAnimation={false}
-            brightness={1}
-          />
-        </Suspense>
-      </div>
+
       <img
         src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
         alt="LOA Logo"
