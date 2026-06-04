@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from "react";
+import TermsOverlay from "./TermsOverlay";
 
 interface Subcategory {
   name: string;
@@ -15,7 +16,7 @@ interface CategoryGroup {
 
 const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    title: "For the Love of Ideas",
+    title: "For the Love of Traditional",
     description:
       "From a striking print visual to a memorable radio spot, an iconic outdoor execution, or a film that stays with you long after it ends, this category honours ideas crafted with clarity, creativity, and a genuine love for storytelling.",
     color: "#FFE600",
@@ -173,10 +174,12 @@ const ALL_SUBCATEGORIES: Subcategory[] = CATEGORY_GROUPS.flatMap((g) =>
 const APPLY_URL = "https://www.loaawards.com";
 
 export default function Categories() {
-  const [search, setSearch] = useState("");
-  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [activeFilter, setActiveFilter] = useState<string>(
+    CATEGORY_GROUPS[0].title,
+  );
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
 
-  const filters = ["All", ...CATEGORY_GROUPS.map((g) => g.title)];
+  const filters = CATEGORY_GROUPS.map((g) => g.title);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
@@ -190,28 +193,22 @@ export default function Categories() {
 
   const filtered = useMemo(() => {
     return ALL_SUBCATEGORIES.filter((s) => {
-      const matchesSearch =
-        s.name.toLowerCase().includes(search.toLowerCase()) ||
-        s.parent.toLowerCase().includes(search.toLowerCase());
-      const matchesFilter = activeFilter === "All" || s.parent === activeFilter;
-      return matchesSearch && matchesFilter;
+      return s.parent === activeFilter;
     });
-  }, [search, activeFilter]);
+  }, [activeFilter]);
 
   return (
     <section
       id="categories"
-      className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-12 pb-16 overflow-hidden"
+      className="relative bg-loa-purple px-6 md:px-24 lg:px-48 pt-24 md:pt-36 pb-16 overflow-hidden"
     >
-      <div className="hidden md:flex justify-end w-full mb-12">
-        <img
-          src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
-          alt="LOA Logo"
-          loading="lazy"
-          decoding="async"
-          className="h-32 object-contain"
-        />
-      </div>
+      <img
+        src="https://loa-awards-content-network.b-cdn.net/logo-loa.webp"
+        alt="LOA Logo"
+        loading="lazy"
+        decoding="async"
+        className="hidden md:block absolute md:top-4 md:right-4 md:h-[104px] lg:top-6 lg:right-8 lg:h-[166px] object-contain z-10 pointer-events-none"
+      />
       <div className="max-w-6xl mx-auto w-full flex flex-col items-center gap-8">
         {/* Heading */}
         <h2
@@ -227,12 +224,18 @@ export default function Categories() {
           individual - may enter subject to meeting the entry criteria.
         </p>
 
-        {/* Search bar */}
-        <div className="w-full max-w-xl relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-loa-yellow pointer-events-none">
+        {/* Buttons */}
+        <div className="w-full flex flex-col sm:flex-row gap-4 justify-center items-center mt-2">
+          <a 
+            href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf" 
+            download="LOA-Handbook.pdf"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-white text-loa-black font-bold uppercase tracking-widest px-6 py-4 rounded border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 transition-all"
+          >
             <svg
-              width="18"
-              height="18"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -240,36 +243,31 @@ export default function Categories() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-          </span>
-          <input
-            type="text"
-            placeholder="Search categories..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white/10 border border-loa-yellow/40 text-white placeholder-white/40 rounded-full pl-11 pr-5 py-3 text-sm focus:outline-none focus:border-loa-yellow focus:bg-white/15 transition-all"
-          />
-          {search && (
-            <button
-              onClick={() => setSearch("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors"
+            Submission Guidelines
+          </a>
+          <button 
+            onClick={() => setIsTermsOpen(true)}
+            className="flex items-center gap-3 bg-loa-yellow text-loa-black font-bold uppercase tracking-widest px-6 py-4 rounded border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 transition-all"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          )}
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Terms &amp; Conditions
+          </button>
         </div>
 
         {/* Filter tabs (Neo-Brutalist Design) */}
@@ -322,7 +320,7 @@ export default function Categories() {
                           : "#0A0A0A",
                       }}
                     >
-                      {f === "All" ? "ALL" : f.replace("For the Love of ", "")}
+                      {f.replace("For the Love of ", "")}
                     </button>
                   );
                 })}
@@ -352,83 +350,63 @@ export default function Categories() {
         </div>
 
         {/* Group Description */}
-        {activeFilter !== "All" && (
-          <div className="w-full max-w-3xl text-center px-4 mt-2 mb-4">
-            <p className="text-white/80 text-sm md:text-base leading-relaxed">
-              {
-                CATEGORY_GROUPS.find((g) => g.title === activeFilter)
-                  ?.description
-              }
-            </p>
-          </div>
-        )}
+        <div className="w-full max-w-3xl text-center px-4 mt-2 mb-4">
+          <p className="text-white/80 text-sm md:text-base leading-relaxed">
+            {CATEGORY_GROUPS.find((g) => g.title === activeFilter)?.description}
+          </p>
+        </div>
 
         {/* Category grid */}
-        {filtered.length === 0 ? (
-          <p className="text-white/40 text-sm py-12">
-            No categories found for "{search}"
-          </p>
-        ) : (
-          <div className="group/grid w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 place-items-center">
-            {filtered.map((sub) => {
-              const group = CATEGORY_GROUPS.find(
-                (g) => g.title === sub.parent,
-              )!;
-              const nameParts = sub.name.split(" – ");
-              const mainTitle = nameParts[0];
-              const subTitle = nameParts.slice(1).join(" – ");
+        <div className="group/grid w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 place-items-center">
+          {filtered.map((sub) => {
+            const group = CATEGORY_GROUPS.find((g) => g.title === sub.parent)!;
+            const nameParts = sub.name.split(" – ");
+            const mainTitle = nameParts[0];
+            const subTitle = nameParts.slice(1).join(" – ");
 
-              return (
-                <a
-                  key={sub.name + sub.parent}
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/card relative aspect-square w-full max-w-[220px] cursor-pointer group-hover/grid:opacity-40 group-hover/grid:scale-[0.98] hover:opacity-100! hover:scale-100!"
-                  style={
-                    {
-                      "--card-bg": group.color,
-                      "--card-fg": group.textColor,
-                      "--card-border":
-                        group.color === "#FFE600" ? "#0A0A0A" : group.textColor,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div className="absolute inset-0 rounded-full border-4 border-(--card-border) bg-(--card-bg) p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_var(--card-border)] transition-all duration-200 ease-out group-hover/card:translate-x-[4px] group-hover/card:translate-y-[4px] group-hover/card:shadow-[0px_0px_0px_var(--card-border)] group-hover/card:-rotate-3">
-                    <h3 className="font-display text-(--card-fg) flex flex-col items-center justify-center uppercase leading-tight w-full px-1 mb-2 sm:mb-3">
-                      <span className="text-sm sm:text-base md:text-lg truncate w-full text-center">
-                        {mainTitle}
-                      </span>
-                      {subTitle && (
-                        <span className="text-[9px] sm:text-[10px] md:text-[11px] opacity-80 line-clamp-2 mt-0.5">
-                          {subTitle}
-                        </span>
-                      )}
-                    </h3>
-
-                    <span className="rounded-full border-2 border-(--card-border) bg-(--card-fg) text-(--card-bg) px-2.5 py-1 sm:px-4 sm:py-1.5 font-body text-[8px] sm:text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-200 group-hover/card:bg-(--card-bg) group-hover/card:text-(--card-fg)">
-                      Apply Here
+            return (
+              <a
+                key={sub.name + sub.parent}
+                href={APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/card relative aspect-square w-full max-w-[220px] cursor-pointer group-hover/grid:opacity-40 group-hover/grid:scale-[0.98] hover:opacity-100! hover:scale-100!"
+                style={
+                  {
+                    "--card-bg": group.color,
+                    "--card-fg": group.textColor,
+                    "--card-border":
+                      group.color === "#FFE600" ? "#0A0A0A" : group.textColor,
+                  } as React.CSSProperties
+                }
+              >
+                <div className="absolute inset-0 rounded-full border-4 border-(--card-border) bg-(--card-bg) p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_var(--card-border)] transition-all duration-200 ease-out group-hover/card:translate-x-[4px] group-hover/card:translate-y-[4px] group-hover/card:shadow-[0px_0px_0px_var(--card-border)] group-hover/card:-rotate-3">
+                  <h3 className="font-display text-(--card-fg) flex flex-col items-center justify-center uppercase leading-tight w-full px-1 mb-2 sm:mb-3">
+                    <span className="text-sm sm:text-base md:text-lg truncate w-full text-center">
+                      {mainTitle}
                     </span>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        )}
+                    {subTitle && (
+                      <span className="text-[9px] sm:text-[10px] md:text-[11px] opacity-80 line-clamp-2 mt-0.5">
+                        {subTitle}
+                      </span>
+                    )}
+                  </h3>
 
-        {/* Result count */}
-        {search && (
-          <p className="text-white/40 text-xs">
-            {filtered.length} result{filtered.length !== 1 ? "s" : ""} for "
-            {search}"
-          </p>
-        )}
+                  <span className="rounded-full border-2 border-(--card-border) bg-(--card-fg) text-(--card-bg) px-2.5 py-1 sm:px-4 sm:py-1.5 font-body text-[8px] sm:text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-200 group-hover/card:bg-(--card-bg) group-hover/card:text-(--card-fg)">
+                    Apply Here
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
 
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
+      <TermsOverlay isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
     </section>
   );
 }

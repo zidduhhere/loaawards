@@ -4,8 +4,6 @@ export default function Footer() {
     { label: "Categories", href: "#categories" },
     { label: "Deadlines", href: "#deadlines" },
     { label: "Jury", href: "#jury" },
-    { label: "Winners", href: "#winners" },
-    { label: "Register", href: "#register" },
   ];
 
   const socials = [
@@ -117,10 +115,19 @@ export default function Footer() {
           <div className="flex flex-col gap-1">
             <p className="text-black/50 text-xs uppercase tracking-wider">Email</p>
             <a
-              href="mailto:hello@loveofadvertising.com"
+              href="mailto:advertismentclubtrivandrum@gmail.com"
               className="text-black text-sm hover:underline break-all"
             >
-              hello@loveofadvertising.com
+              advertismentclubtrivandrum@gmail.com
+            </a>
+          </div>
+          <div className="flex flex-col gap-1 mt-2">
+            <p className="text-black/50 text-xs uppercase tracking-wider">Phone</p>
+            <a
+              href="tel:+919847257468"
+              className="text-black text-sm hover:underline"
+            >
+              +91 98472 57468
             </a>
           </div>
           <div className="flex flex-col gap-1 mt-2">
@@ -143,11 +150,6 @@ export default function Footer() {
         {/* Eligibility / CTA */}
         <div className="flex flex-col gap-4">
           <p className="text-black font-semibold text-xs uppercase tracking-widest mb-1">Enter Now</p>
-          <p className="text-black/70 text-xs leading-relaxed">
-            Work released in India between<br />
-            <span className="text-black font-semibold">1 Jan 2025 – 1 Jan 2026</span><br />
-            is eligible for entry.
-          </p>
           <a
             href="https://www.loaawards.com"
             target="_blank"
@@ -162,7 +164,9 @@ export default function Footer() {
             </svg>
           </a>
           <div className="mt-4">
-            <img src="https://loa-awards-content-network.b-cdn.net/act-logo.png" alt="ACT Logo" loading="lazy" decoding="async" className="h-12 object-contain mix-blend-multiply" />
+            <a href="https://adclubtvm.com" target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105">
+              <img src="https://loa-awards-content-network.b-cdn.net/act-logo.png" alt="ACT Logo" loading="lazy" decoding="async" className="h-12 object-contain mix-blend-multiply" />
+            </a>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ const About = () => {
           alt="LOA Logo"
           loading="lazy"
           decoding="async"
-          className="hidden md:block absolute md:top-4 md:right-4 md:h-20 lg:top-6 lg:right-8 lg:h-32 object-contain z-10"
+          className="hidden md:block absolute md:top-4 md:right-4 md:h-[104px] lg:top-6 lg:right-8 lg:h-[166px] object-contain z-10"
         />
         <div className="text-loa-yellow font-display mt-24 md:mt-32 xl:mt-48 w-full">
           <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 md:gap-12 xl:items-start">

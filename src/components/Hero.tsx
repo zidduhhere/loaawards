@@ -3,30 +3,14 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import ScrollVelocity from "./ScrollVelocity";
 
-let hasPlayedOnce = false;
-
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
-
-    if (hasPlayedOnce) {
-      // If it already played this session, seek to end and pause
-      video.currentTime = 9999;
-    } else {
-      // Otherwise play it
+    if (video) {
       video.play().catch(() => {});
     }
-
-    const handleEnded = () => {
-      hasPlayedOnce = true;
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-    };
-
-    video.addEventListener("ended", handleEnded);
-    return () => video.removeEventListener("ended", handleEnded);
   }, []);
 
   return (
@@ -37,7 +21,7 @@ export default function Hero() {
         className="hidden md:block absolute inset-0 w-full h-full object-cover"
         muted
         playsInline
-        loop={false}
+        loop
         preload="auto"
         // poster="/assets/hero-poster.jpg" // Add a lightweight screenshot of the first frame here to fix perceived loading lag!
       >
@@ -123,7 +107,7 @@ export default function Hero() {
         alt="ACT Logo"
         fetchPriority="high"
         decoding="sync"
-        className="hidden md:block absolute md:top-24 lg:top-6 md:right-6 lg:right-8 h-8 lg:h-10 object-contain z-10"
+        className="hidden md:block absolute top-6 left-8 h-12  object-contain z-10"
       />
 
       {/* Scroll indicator */}
