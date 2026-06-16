@@ -131,11 +131,11 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          25{" "}
+          30{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em]">
             /
           </span>{" "}
-          10
+          06
         </span>
 
         {/* Final */}
@@ -170,11 +170,11 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          14{" "}
+          31{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] ">
             /
           </span>{" "}
-          12
+          07
         </span>
       </div>
 

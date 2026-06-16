@@ -233,17 +233,17 @@ export default function Categories() {
         </h2>
 
         <p className="text-sm leading-relaxed text-white/70 text-center max-w-2xl">
-          Work released in India between 1 January 2025 and 1 January 2026. Any
+          Work released in India between 1 January 2025 and 31st March 2026. Any
           entity involved in the creation - agency, client, production house, or
           individual - may enter subject to meeting the entry criteria.
         </p>
 
         {/* Buttons */}
         <div className="w-full flex flex-col sm:flex-row gap-4 justify-center items-center mt-2">
-          <a 
-            href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf" 
+          <a
+            href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
             download="LOA-Handbook.pdf"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-white text-loa-black font-bold uppercase tracking-widest px-6 py-4 rounded border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 transition-all"
           >
@@ -263,7 +263,7 @@ export default function Categories() {
             </svg>
             Submission Guidelines
           </a>
-          <button 
+          <button
             onClick={() => setIsTermsOpen(true)}
             className="flex items-center gap-3 bg-loa-yellow text-loa-black font-bold uppercase tracking-widest px-6 py-4 rounded border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 transition-all"
           >
@@ -423,7 +423,10 @@ export default function Categories() {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
-      <TermsOverlay isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
+      <TermsOverlay
+        isOpen={isTermsOpen}
+        onClose={() => setIsTermsOpen(false)}
+      />
     </section>
   );
 }
