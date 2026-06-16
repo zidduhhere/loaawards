@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type JuryMember = {
-  src: string;
+  src?: string;
   name: string;
   position: string;
   imageClassName?: string;
@@ -14,11 +14,6 @@ const JURY: JuryMember[] = [
     position: "Former Chairman\nHavas - Jury Chair",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/2.webp",
-    name: "Senthil Kumar",
-    position: "CCO, VML",
-  },
-  {
     src: "https://loa-awards-content-network.b-cdn.net/3.webp",
     name: "Swarup BR",
     position: "Co-Founder\nStark Communications",
@@ -27,6 +22,21 @@ const JURY: JuryMember[] = [
     src: "https://loa-awards-content-network.b-cdn.net/4.webp",
     name: "Pooja Manek",
     position: "Founding Member\nTalented",
+  },
+  {
+    src: "https://loa-awards-content-network.b-cdn.net/9.webp",
+    name: "Mithila Saraf",
+    position: "CEO, Famous Innovations",
+  },
+  {
+    src: "https://loa-awards-content-network.b-cdn.net/8.webp",
+    name: "Krishnanunni",
+    position: "Creative Head, Ather Energy",
+  },
+  {
+    src: "https://loa-awards-content-network.b-cdn.net/2.webp",
+    name: "Senthil Kumar",
+    position: "CCO, VML",
   },
   {
     src: "https://loa-awards-content-network.b-cdn.net/5.webp",
@@ -40,19 +50,13 @@ const JURY: JuryMember[] = [
     position: "ECD, Ogilvy",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/7.webp",
+    name: "Nishad Ramachandran",
+    position: "Chief AI & Digital Officer\nVidzai",
+  },
+  {
+    src: "https://loa-awards-content-network.b-cdn.net/11.webp",
     name: "Anna Joseph",
     position: "Independent Filmmaker",
-  },
-  {
-    src: "https://loa-awards-content-network.b-cdn.net/8.webp",
-    name: "Krishnanunni",
-    position: "Creative Head, Ather Energy",
-  },
-  {
-    src: "https://loa-awards-content-network.b-cdn.net/9.webp",
-    name: "Mithila Saraf",
-    position: "CEO, Famous Innovations",
   },
 ];
 
@@ -66,6 +70,7 @@ const BG_COLORS = [
   "bg-loa-pink",
   "bg-loa-yellow",
   "bg-loa-purple",
+  "bg-loa-pink",
 ];
 
 function JuryCard({ member, index }: { member: JuryMember; index: number }) {
@@ -92,17 +97,19 @@ function JuryCard({ member, index }: { member: JuryMember; index: number }) {
           <div
             className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}
           >
-            <img
-              src={member.src}
-              alt={member.name}
-              loading="lazy"
-              decoding="async"
-              className={`w-full h-full object-cover ${member.imageClassName || ""}`}
-              onError={(e) => {
-                // If image fails to load, let's at least hide the broken icon so the background color shows
-                e.currentTarget.style.display = "none";
-              }}
-            />
+            {member.src && (
+              <img
+                src={member.src}
+                alt={member.name}
+                loading="lazy"
+                decoding="async"
+                className={`w-full h-full object-cover ${member.imageClassName || ""}`}
+                onError={(e) => {
+                  // If image fails to load, let's at least hide the broken icon so the background color shows
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+            )}
           </div>
           {/* Back — name & position */}
           <div

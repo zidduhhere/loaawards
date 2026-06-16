@@ -5,7 +5,7 @@ const NAV_LINKS: { label: string; id?: string; href?: string; external?: boolean
   { label: "HOME", id: "home" },
   { label: "CATEGORIES", id: "categories" },
   { label: "JURY MEMBERS", id: "jury" },
-  { label: "APPLY NOW", href: "https://loaawards.com", external: true },
+  { label: "APPLY NOW", href: "https://actloa.awardsengine.com/", external: true },
 ];
 
 function smoothScrollTo(targetPosition: number, duration: number) {

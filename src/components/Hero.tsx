@@ -89,7 +89,7 @@ export default function Hero() {
 
         {/* Mobile Apply Now CTA */}
         <motion.a
-          href="https://loaawards.com"
+          href="https://actloa.awardsengine.com/"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.8 }}

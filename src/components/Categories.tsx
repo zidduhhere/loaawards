@@ -8,6 +8,7 @@ interface Subcategory {
 
 interface CategoryGroup {
   title: string;
+  discipline: string;
   description: string;
   color: string;
   textColor: string;
@@ -16,151 +17,164 @@ interface CategoryGroup {
 
 const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    title: "For the Love of Traditional",
+    title: "For the Love of Ideas",
+    discipline: "Traditional & Broadcast Advertising",
     description:
       "From a striking print visual to a memorable radio spot, an iconic outdoor execution, or a film that stays with you long after it ends, this category honours ideas crafted with clarity, creativity, and a genuine love for storytelling.",
     color: "#FFE600",
     textColor: "#5B1BE8",
     subcategories: [
-      "Print Ad – Single/Campaign",
-      "Outdoor – Hoarding – Single/Campaign",
-      "Outdoor – Banner",
-      "Outdoor – Poster",
-      "Radio – Single/Campaign",
-      "Radio – RJ Branded Content",
-      "TVC – Single/Campaign",
-      "Integrated Campaign",
+      "Print – Single / Campaign",
+      "Outdoor – Hoardings – Single / Campaign",
+      "Outdoor – Banners – Single / Campaign",
+      "Outdoor – Posters – Single / Campaign",
+      "Outdoor – Ambient / POP – Single / Campaign",
+      "Radio – Single / Campaign",
+      "Radio – RJ / Branded Content",
+      "TVCs – Single / Campaign",
     ],
   },
   {
     title: "For the Love of Design",
+    discipline: "Design Craft & Collateral",
     description:
       "From iconic identities and striking posters to thoughtfully crafted collateral and packaging, this category honours design that blends creativity, purpose, and craftsmanship, to turn ideas into compelling visual experiences.",
     color: "#FF2D8B",
     textColor: "#FFE600",
     subcategories: [
-      "Design – Logo",
-      "Design – Brand Identity",
-      "Design – Poster",
-      "Design – Film Poster",
-      "Design – Brochure",
-      "Design – Calendar",
-      "Design – Packaging",
-      "Design – Others",
+      "Identity – Brand Identity",
+      "Identity – Logos",
+      "Posters – Brand Posters",
+      "Posters – Film Posters",
+      "Packaging & Products – Brochures",
+      "Packaging & Products – Calendars",
+      "Packaging & Products – Packaging",
+      "Packaging & Products – Others",
     ],
   },
   {
-    title: "For the Love of Craft",
+    title: "For the Love of Integration",
+    discipline: "Integrated Campaign",
     description:
-      "For the Love of Craft celebrates the artistry behind exceptional communication — the details that transform an idea into something unforgettable. From compelling words and striking visuals to thoughtful typography, evocative imagery, and masterful illustration.",
+      "From a powerful idea executed across different platforms, this category celebrates campaigns that bring together multiple mediums in a connected and seamless way. It honours work that turns one creative thought into a unified communication experience.",
     color: "#FFE600",
     textColor: "#5B1BE8",
+    subcategories: ["Integrated Campaign"],
+  },
+  {
+    title: "For the Love of Craft",
+    discipline: "Craft in Communication",
+    description:
+      "For the Love of Craft celebrates the artistry behind exceptional communication — the details that transform an idea into something unforgettable. From compelling words and striking visuals to thoughtful typography, evocative imagery, and masterful illustration, this category honours the skill, precision, and passion that bring creative work to life.",
+    color: "#FF2D8B",
+    textColor: "#FFE600",
     subcategories: [
-      "Craft – Art Direction",
-      "Craft – Copywriting",
-      "Craft – Typography",
-      "Craft – Illustration",
-      "Craft – Photography",
+      "Art Direction",
+      "Copywriting",
+      "Typography",
+      "Illustration",
+      "Photography",
     ],
   },
   {
     title: "For the Love of Filmmaking",
+    discipline: "Audio Visual Craft & Innovation",
     description:
       "Honouring the craft, vision, and innovation that transform moving images into unforgettable stories. This category honours the creative excellence behind every frame — from inspired direction to cutting edge visual technologies.",
-    color: "#FF2D8B",
-    textColor: "#FFE600",
+    color: "#FFE600",
+    textColor: "#5B1BE8",
     subcategories: [
-      "Animation – Single/Series",
-      "Casting & Performance – Single/Series",
-      "Cinematography – Single/Series",
-      "Use of AI/AI Integration – Single/Series",
-      "Direction – Single/Series",
-      "Editing – Single/Series",
-      "Formats & Layouts – Single/Series",
-      "Production Design – Single/Series",
-      "Best Use of Low Budget (Under ₹5 Lakhs)",
-      "Sound Design/SFX – Single/Series",
-      "Use of Music – Single/Series",
-      "Special Effects/VFX – Single/Series",
-      "Writing & Scripts – Single/Series",
+      "Animation – Single / Campaign",
+      "Casting & Performance – Single / Campaign",
+      "Cinematography – Single / Campaign",
+      "Use of AI / AI Integration – Single / Campaign",
+      "Direction – Single / Campaign",
+      "Editing – Single / Campaign",
+      "Formats & Layouts – Single / Campaign",
+      "Production Design – Single / Campaign",
+      "Best Use of Low Budget (Under ₹5 Lakhs) – Single / Campaign",
+      "Sound Design / SFX – Single / Campaign",
+      "Use of Music – Single / Campaign",
+      "Special Effects / VFX – Single / Campaign",
+      "Writing & Scripts – Single / Campaign",
     ],
   },
   {
     title: "For the Love of Innovation",
+    discipline: "AI-Led Creativity",
     description:
-      "Celebrating the bold intersection of creativity and technology, where imagination is amplified by artificial intelligence. From intelligent storytelling and generative visuals to immersive brand experiences — work that redefines what's possible through AI-led thinking.",
-    color: "#FFE600",
-    textColor: "#5B1BE8",
+      "For the Love of Innovation celebrates the bold intersection of creativity and technology, where imagination is amplified by artificial intelligence. From intelligent storytelling and generative visuals to immersive brand experiences, the creative work that redefines what's possible through AI-led thinking.",
+    color: "#FF2D8B",
+    textColor: "#FFE600",
     subcategories: [
       "AI in Traditional Media – Print",
       "AI in Traditional Media – Outdoor",
-      "AI in Social Media – Static Post",
+      "AI in Social Media – Static Posts",
       "AI in Social Media – Reels & Shorts",
-      "AI in Digital Film",
-      "AI in TVC",
+      "AI in Films – Digital Films",
+      "AI in Films – TVCs",
       "AI in Sound, Radio & Audio",
       "AI in Experiential Marketing",
       "AI in Integrated Campaigns",
-      "Use of Generative AI",
-      "Use of AI in Content Creation",
-      "Use of AI for Social Media",
+      "Use of AI – Generative AI",
+      "Use of AI – Content Creation",
+      "Use of AI – Social Cause",
     ],
   },
   {
     title: "For the Love of Creation",
+    discipline: "Creator-Led Branded Content",
     description:
-      "Celebrating the storytellers and creators shaping the way brands connect with audiences today. Compelling short-form content and long-form narratives, creator-led campaigns, influencer partnerships, and community-driven storytelling.",
-    color: "#FF2D8B",
-    textColor: "#FFE600",
+      "Celebrating the storytellers and creators shaping the way brands connect with audiences today. Compelling short-form content and long-form narratives, creator-led campaigns, influencer partnerships, and community-driven storytelling — this category honours content that feels authentic, engaging, and built to spark culture, conversation, and connection.",
+    color: "#FFE600",
+    textColor: "#5B1BE8",
     subcategories: [
-      "Branded Content – Short-form",
-      "Branded Content – Long-form",
-      "Branded Content – Series",
-      "Creator-led Advertisement – Single/Series",
+      "Branded Content – Short-Form",
+      "Branded Content – Long-Form",
+      "Branded Content – Campaign",
+      "Creator-Led Advertising – Single / Campaign",
+      "Use of Creators – Integrated Content Campaign",
       "Use of Creators – Brand Collaboration",
       "Use of Creators – User-Generated Content",
-      "Use of Creators – Integrated Content Campaign",
-      "Use of Influencers",
+      "Use of Creators – Use of Influencers",
     ],
   },
   {
     title: "For the Love of Screen",
+    discipline: "Digital Experiences & Social Engagement",
     description:
-      "Celebrating ideas designed not just to be seen, but to be shared and talked about. From immersive digital experiences and compelling branded content to scroll-stopping social campaigns and real-time cultural moments.",
-    color: "#FFE600",
-    textColor: "#5B1BE8",
+      "For the Love of the Screen celebrates ideas designed not just to be seen, but to be shared and talked about. From immersive digital experiences and compelling branded content to scroll-stopping social campaigns and real-time cultural moments, this category considers work that sparks connection, inspires interaction, and builds meaningful conversations in the ever-evolving world.",
+    color: "#FF2D8B",
+    textColor: "#FFE600",
     subcategories: [
-      "Digital – Website",
-      "Digital – Microsite",
+      "Digital – Websites",
+      "Digital – Microsites",
       "Digital – Branded Content",
-      "Social Media – Static – Single/Campaign",
-      "Social Media – Film – Single/Campaign",
-      "Social Media – Reel/Shorts – Single/Campaign",
+      "Social Media – Static – Single / Campaign",
+      "Social Media – Films – Single / Campaign",
+      "Social Media – Reels & Shorts – Single / Campaign",
       "Social Media – Memes",
-      "Social Media – Activation & Contests",
+      "Social Media – Activations & Contests",
       "Social Media – Moment Marketing",
     ],
   },
   {
-    title: "For the Love of Unpublished Work",
+    title: "For the Love of Possibility",
+    discipline: "Unpublished Works",
     description:
-      "For the Love of Unpublished Work honours bold, unpublished ideas — work that carries the originality, ambition, and creative conviction to challenge conventions and inspire what comes next.",
-    color: "#FF2D8B",
-    textColor: "#FFE600",
-    subcategories: ["Unpublished Work"],
-  },
-  {
-    title: "For the Love of Student Creators",
-    description:
-      "For the fearless imagination of emerging creators, this category is open to students across disciplines. It celebrates bold ideas, original thinking, and untapped creative potential — a space for students to showcase fresh, brand-led work driven by fearless creativity and perspective.",
+      "For the Love of Risk honours bold, unpublished ideas — work that carries the originality, ambition, and creative conviction to challenge conventions and inspire what comes next. Open to professionals and students alike, it celebrates fresh thinking and untapped creative potential across disciplines.",
     color: "#FFE600",
     textColor: "#5B1BE8",
-    subcategories: ["Student Entry – Open Category"],
+    subcategories: [
+      "Unpublished Works – For Professionals",
+      "Unpublished / Published Works – For Students",
+    ],
   },
   {
-    title: "For the Love of Independent Creators",
+    title: "For the Love of the Game",
+    discipline: "Independent Creative Excellence",
     description:
-      "Celebrating outstanding non-brand driven work by individuals, freelancers, in-house designers, studios and hotshops. This category recognises ideas that prove great creativity is not defined by scale, but by vision, courage, and the drive to make an impact.",
+      "Celebrating outstanding non-brand driven work by individuals, freelancers, in-house designers, studios and hotshops. This category recognises ideas that prove great creativity is not defined by scale, but by vision, courage, and the drive to make an impact. It includes everyday and independent creative expressions — from posters and magazine or book covers to wall paintings, signage and messages — that exist outside traditional brand-led communication.",
     color: "#FF2D8B",
     textColor: "#FFE600",
     subcategories: ["Independent Creative Excellence"],
@@ -171,7 +185,7 @@ const ALL_SUBCATEGORIES: Subcategory[] = CATEGORY_GROUPS.flatMap((g) =>
   g.subcategories.map((name) => ({ name, parent: g.title })),
 );
 
-const APPLY_URL = "https://www.loaawards.com";
+const APPLY_URL = "https://actloa.awardsengine.com/";
 
 export default function Categories() {
   const [activeFilter, setActiveFilter] = useState<string>(
@@ -351,6 +365,9 @@ export default function Categories() {
 
         {/* Group Description */}
         <div className="w-full max-w-3xl text-center px-4 mt-2 mb-4">
+          <p className="text-loa-yellow text-xs md:text-sm font-bold uppercase tracking-widest mb-3">
+            {CATEGORY_GROUPS.find((g) => g.title === activeFilter)?.discipline}
+          </p>
           <p className="text-white/80 text-sm md:text-base leading-relaxed">
             {CATEGORY_GROUPS.find((g) => g.title === activeFilter)?.description}
           </p>

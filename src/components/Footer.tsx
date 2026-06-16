@@ -115,10 +115,10 @@ export default function Footer() {
           <div className="flex flex-col gap-1">
             <p className="text-black/50 text-xs uppercase tracking-wider">Email</p>
             <a
-              href="mailto:advertismentclubtrivandrum@gmail.com"
+              href="mailto:adclubtrivadrum@gmail.com"
               className="text-black text-sm hover:underline break-all"
             >
-              advertismentclubtrivandrum@gmail.com
+              adclubtrivadrum@gmail.com
             </a>
           </div>
           <div className="flex flex-col gap-1 mt-2">
@@ -133,12 +133,12 @@ export default function Footer() {
           <div className="flex flex-col gap-1 mt-2">
             <p className="text-black/50 text-xs uppercase tracking-wider">Website</p>
             <a
-              href="https://loveofadvertising.com"
+              href="https://adclubtrivandrum.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-black text-sm hover:underline"
             >
-              loveofadvertising.com
+              adclubtrivandrum.com
             </a>
           </div>
           <div className="flex flex-col gap-1 mt-2">
@@ -151,7 +151,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <p className="text-black font-semibold text-xs uppercase tracking-widest mb-1">Enter Now</p>
           <a
-            href="https://www.loaawards.com"
+            href="https://actloa.awardsengine.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-1 inline-flex items-center gap-2 bg-black text-[#FF1493] text-xs uppercase tracking-widest font-semibold px-5 py-3 rounded-full hover:bg-[#FFE600] hover:text-black transition-all duration-200"
@@ -164,7 +164,7 @@ export default function Footer() {
             </svg>
           </a>
           <div className="mt-4">
-            <a href="https://adclubtvm.com" target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105">
+            <a href="https://adclubtrivandrum.com" target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105">
               <img src="https://loa-awards-content-network.b-cdn.net/act-logo.png" alt="ACT Logo" loading="lazy" decoding="async" className="h-12 object-contain mix-blend-multiply" />
             </a>
           </div>
