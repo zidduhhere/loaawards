@@ -22,6 +22,7 @@ const JURY: JuryMember[] = [
     src: "https://loa-awards-content-network.b-cdn.net/3.webp",
     name: "Swarup BR",
     position: "Co-Founder\nStark Communications",
+    imageClassName: "scale-[0.88]",
   },
   {
     src: "https://loa-awards-content-network.b-cdn.net/5.webp",
@@ -43,6 +44,7 @@ const JURY: JuryMember[] = [
     src: "https://loa-awards-content-network.b-cdn.net/9.webp",
     name: "Mithila Saraf",
     position: "CEO, Famous Innovations",
+    imageClassName: "scale-[0.88]",
   },
   {
     name: "Nishad Ramachandran",
