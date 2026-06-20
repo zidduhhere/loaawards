@@ -46,7 +46,7 @@ const JURY: JuryMember[] = [
   },
   {
     name: "Nishad Ramachandran",
-    src: "https://loa-awards-content-network.b-cdn.net/10.webp"
+    src: "https://loa-awards-content-network.b-cdn.net/10.webp",
     position: "Chief AI & Digital Officer\nVidzai",
   },
   {
