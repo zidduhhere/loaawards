@@ -16,7 +16,7 @@ const JURY: JuryMember[] = [
   {
     src: "https://loa-awards-content-network.b-cdn.net/2.webp",
     name: "Senthil Kumar",
-    position: "CCO, VML",
+    position: "Creative Consultant &\nFilmmaker",
   },
   {
     src: "https://loa-awards-content-network.b-cdn.net/3.webp",
