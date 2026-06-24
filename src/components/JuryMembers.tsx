@@ -9,55 +9,52 @@ type JuryMember = {
 
 const JURY: JuryMember[] = [
   {
-    src: "https://loa-awards-content-network.b-cdn.net/1.webp",
+    src: "/assets/BOBBY.webp",
     name: "Bobby Pawar",
     position: "Former Chairman\nHavas - Jury Chair",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/2.webp",
+    src: "/assets/SENTHIL.webp",
     name: "Senthil Kumar",
     position: "Creative Consultant &\nFilmmaker",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/3.webp",
+    src: "/assets/SWARUP.webp",
     name: "Swarup BR",
     position: "Co-Founder\nStark Communications",
-    // imageClassName: "scale-[0.95]",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/5.webp",
+    src: "/assets/PK-ANIL-KUMAR.webp",
     name: "PK Anil Kumar",
-    position: "Director\nCreative Excellence McCann",
-    imageClassName: "object-bottom",
+    position: "Director Creative Excellence\nMcCann",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/4.webp",
+    src: "/assets/POOJA.webp",
     name: "Pooja Manek",
     position: "Founding Member\nTalented",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/6.webp",
+    src: "/assets/SAGAR.webp",
     name: "Sagar Jadhav",
     position: "ECD, Ogilvy",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/9.webp",
+    src: "/assets/MITHILA.webp",
     name: "Mithila Saraf",
     position: "CEO, Famous Innovations",
-    // imageClassName: "scale-[0.95]",
   },
   {
+    src: "/assets/NISHAD.webp",
     name: "Nishad Ramachandran",
-    src: "https://loa-awards-content-network.b-cdn.net/10.webp",
     position: "Chief AI & Digital Officer\nVidzai",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/8.webp",
+    src: "/assets/KRISHNANUNNI.webp",
     name: "Krishnanunni",
     position: "Creative Head, Ather Energy",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/11.webp",
+    src: "/assets/ANNA.webp",
     name: "Anna Joseph",
     position: "Independent Filmmaker",
   },
@@ -98,7 +95,7 @@ function JuryCard({ member, index }: { member: JuryMember; index: number }) {
         >
           {/* Front — photo */}
           <div
-            className={`absolute inset-0 rounded-full overflow-hidden backface-hidden ${bg}`}
+            className={`absolute inset-0 rounded-full overflow-hidden backface-hidden`}
           >
             {member.src && (
               <img
