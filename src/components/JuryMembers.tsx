@@ -9,52 +9,52 @@ type JuryMember = {
 
 const JURY: JuryMember[] = [
   {
-    src: "/assets/BOBBY.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/BOBBY.webp",
     name: "Bobby Pawar",
     position: "Former Chairman\nHavas - Jury Chair",
   },
   {
-    src: "/assets/SENTHIL.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/SENTHIL.webp",
     name: "Senthil Kumar",
     position: "Creative Consultant &\nFilmmaker",
   },
   {
-    src: "/assets/SWARUP.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/SWARUP.webp",
     name: "Swarup BR",
     position: "Co-Founder\nStark Communications",
   },
   {
-    src: "/assets/PK-ANIL-KUMAR.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/PK-ANIL-KUMAR.webp",
     name: "PK Anil Kumar",
     position: "Director Creative Excellence\nMcCann",
   },
   {
-    src: "/assets/POOJA.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/POOJA.webp",
     name: "Pooja Manek",
     position: "Founding Member\nTalented",
   },
   {
-    src: "/assets/SAGAR.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/SAGAR.webp",
     name: "Sagar Jadhav",
     position: "ECD, Ogilvy",
   },
   {
-    src: "/assets/MITHILA.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/MITHILA.webp",
     name: "Mithila Saraf",
     position: "CEO, Famous Innovations",
   },
   {
-    src: "/assets/NISHAD.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/NISHAD.webp",
     name: "Nishad Ramachandran",
     position: "Chief AI & Digital Officer\nVidzai",
   },
   {
-    src: "/assets/KRISHNANUNNI.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/KRISHNANUNNI.webp",
     name: "Krishnanunni",
     position: "Creative Head, Ather Energy",
   },
   {
-    src: "/assets/ANNA.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/ANNA.webp",
     name: "Anna Joseph",
     position: "Independent Filmmaker",
   },
