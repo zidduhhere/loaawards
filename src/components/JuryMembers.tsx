@@ -151,7 +151,7 @@ export default function JuryMembers() {
           <span className="inline-flex items-center gap-3">
             OF HEARTS
             <img
-              src="/assets/love-icon-small.svg"
+              src="https://loa-awards-content-network.b-cdn.net/love-icon-small.svg"
               alt="Heart"
               className="inline-block h-[0.75em] w-auto translate-y-[-5%]"
             />
