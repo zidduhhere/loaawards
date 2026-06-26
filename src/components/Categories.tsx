@@ -54,7 +54,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   },
   {
     title: "For the Love of Integration",
-    discipline: "Integrated Campaign",
+    discipline: "Integrated",
     description:
       "From a powerful idea executed across different platforms, this category celebrates campaigns that bring together multiple mediums in a connected and seamless way. It honours work that turns one creative thought into a unified communication experience.",
     color: "#FFE600",
@@ -71,9 +71,9 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     subcategories: [
       "Art Direction",
       "Copywriting",
-      "Typography",
       "Illustration",
       "Photography",
+      "Typography",
     ],
   },
   {
@@ -92,10 +92,10 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       "Editing – Single / Campaign",
       "Formats & Layouts – Single / Campaign",
       "Production Design – Single / Campaign",
-      "Best Use of Low Budget (Under ₹5 Lakhs) – Single / Campaign",
+      "Best Use of Low Budget (Under ₹10 Lakhs) – Single / Campaign",
       "Sound Design / SFX – Single / Campaign",
       "Use of Music – Single / Campaign",
-      "Special Effects / VFX – Single / Campaign",
+      "Special Effects / Visual Effects / VFX – Single / Campaign",
       "Writing & Scripts – Single / Campaign",
     ],
   },
@@ -109,16 +109,16 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     subcategories: [
       "AI in Traditional Media – Print",
       "AI in Traditional Media – Outdoor",
-      "AI in Social Media – Static Posts",
+      "AI in Social Media – Posts",
       "AI in Social Media – Reels & Shorts",
-      "AI in Films – Digital Films",
       "AI in Films – TVCs",
+      "AI in Films – Digital Films",
       "AI in Sound, Radio & Audio",
       "AI in Experiential Marketing",
       "AI in Integrated Campaigns",
-      "Use of AI – Generative AI",
-      "Use of AI – Content Creation",
-      "Use of AI – Social Cause",
+      "Use of AI – Use of Generative AI",
+      "Use of AI – Use of AI in Content Creation",
+      "Use of AI – Use of AI for a Social Cause",
     ],
   },
   {
@@ -130,12 +130,13 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     textColor: "#5B1BE8",
     subcategories: [
       "Branded Content – Short-Form",
-      "Branded Content – Long-Form",
-      "Branded Content – Campaign",
-      "Creator-Led Advertising – Single / Campaign",
+      "Branded Content – Long Form",
+      "Branded Content – Series",
+      "Advertising – Single",
+      "Advertising – Series",
       "Use of Creators – Integrated Content Campaign",
-      "Use of Creators – Brand Collaboration",
-      "Use of Creators – User-Generated Content",
+      "Use of Creators – Use of Brand Collaboration",
+      "Use of Creators – Use of User-Generated Content",
       "Use of Creators – Use of Influencers",
     ],
   },
@@ -147,15 +148,61 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     color: "#FF2D8B",
     textColor: "#FFE600",
     subcategories: [
-      "Digital – Websites",
-      "Digital – Microsites",
+      "Digital – Website",
+      "Digital – Microsite",
       "Digital – Branded Content",
       "Social Media – Static – Single / Campaign",
-      "Social Media – Films – Single / Campaign",
-      "Social Media – Reels & Shorts – Single / Campaign",
+      "Social Media – Film – Single / Campaign",
+      "Social Media – Reels / Shorts – Single / Campaign",
       "Social Media – Memes",
       "Social Media – Activations & Contests",
       "Social Media – Moment Marketing",
+    ],
+  },
+  {
+    title: "For the Love of Media",
+    discipline: "Media",
+    description:
+      "From innovative press buys and bold OOH executions to integrated digital media strategies, this category celebrates the ideas and thinking that define how brands reach and resonate with their audiences across every touchpoint.",
+    color: "#FFE600",
+    textColor: "#5B1BE8",
+    subcategories: [
+      "Media Innovation – Press (Dailies & Magazines)",
+      "Media Innovation – OOH & Ambient Media",
+      "Media Innovation – Radio & Audio Platforms",
+      "Media Innovation – Branded Content",
+      "Media Innovation – Digital Media",
+      "Media Innovation – E-Commerce",
+      "Media Innovation – POS",
+      "Media Innovation – Direct Marketing",
+      "Media Innovation – Sports Marketing",
+      "Media Innovation – Sponsorships",
+      "Media Innovation – Celebs, Brand Ambassadors & Influencer Marketing",
+      "Media Strategy – B2C",
+      "Media Strategy – B2B",
+      "Media Strategy – Corporate Branding",
+      "Media Strategy – Cause Advertising & Public Service",
+      "Use of Integrated Media – B2C",
+      "Use of Integrated Media – B2B",
+      "Use of Integrated Media – Corporate Branding",
+      "Use of Integrated Media – Cause Advertising & Public Service",
+    ],
+  },
+  {
+    title: "For the Love of Experience",
+    discipline: "Experiential",
+    description:
+      "Celebrating the work that brings brands to life beyond the screen — from live events and guerrilla stunts to immersive brand activations. This category honours experiences that create lasting impressions by engaging audiences in the real world and beyond.",
+    color: "#FF2D8B",
+    textColor: "#FFE600",
+    subcategories: [
+      "Events – Brand-Owned Events & IPs",
+      "Events – Guerilla Stunts & Activations",
+      "Events – Launch / Re-Launch",
+      "Events – Retail",
+      "Events – Sponsored / Partnered",
+      "Offline Brand Activation",
+      "Online Brand Activation",
     ],
   },
   {
@@ -167,7 +214,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     textColor: "#5B1BE8",
     subcategories: [
       "Unpublished Works – For Professionals",
-      "Unpublished / Published Works – For Students",
+      "Unpublished Works – For Students",
     ],
   },
   {
@@ -180,6 +227,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     subcategories: ["Independent Creative Excellence"],
   },
 ];
+
 
 const ALL_SUBCATEGORIES: Subcategory[] = CATEGORY_GROUPS.flatMap((g) =>
   g.subcategories.map((name) => ({ name, parent: g.title })),
@@ -321,11 +369,10 @@ export default function Categories() {
                     <button
                       key={f}
                       onClick={() => setActiveFilter(f)}
-                      className={`relative shrink-0 rounded px-6 py-3 uppercase tracking-widest text-sm md:text-base font-bold transition-all duration-300 border-4 border-loa-black ${
-                        isActive
+                      className={`relative shrink-0 rounded px-6 py-3 uppercase tracking-widest text-sm md:text-base font-bold transition-all duration-300 border-4 border-loa-black ${isActive
                           ? "shadow-[6px_6px_0px_#0A0A0A] -translate-y-1 -translate-x-1 -rotate-2"
                           : "shadow-[2px_2px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 hover:-rotate-1 opacity-90 hover:opacity-100"
-                      }`}
+                        }`}
                       style={{
                         fontFamily: "var(--font-display)",
                         backgroundColor: isActive ? accentColor : "#FFFFFF",
