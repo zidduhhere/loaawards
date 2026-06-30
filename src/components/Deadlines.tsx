@@ -131,11 +131,11 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          30{" "}
+          13{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em]">
             /
           </span>{" "}
-          06
+          07
         </span>
 
         {/* Final */}
@@ -170,11 +170,11 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          31{" "}
+          17{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] ">
             /
           </span>{" "}
-          07
+          08
         </span>
       </div>
 
@@ -190,9 +190,9 @@ export default function Deadlines() {
           while they last.
         </p>
 
-        <a 
-          href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf" 
-          target="_blank" 
+        <a
+          href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-4 md:gap-6 font-display tracking-widest text-xl md:text-4xl bg-loa-purple text-loa-yellow border-4 border-loa-black shadow-[8px_8px_0px_#0A0A0A] px-8 py-4 md:px-16 md:py-8 rounded-2xl transition-all duration-200 ease-out hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[0px_0px_0px_#0A0A0A] hover:-rotate-3 uppercase leading-tight"
         >
