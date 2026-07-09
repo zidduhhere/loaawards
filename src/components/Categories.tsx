@@ -86,7 +86,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     subcategories: [
       "Animation – Single / Campaign",
       "Casting & Performance – Single / Campaign",
-      "Cinematography – Single / Campaign",
+      "Cinema-tography – Single / Campaign",
       "Use of AI / AI Integration – Single / Campaign",
       "Direction – Single / Campaign",
       "Editing – Single / Campaign",
@@ -446,11 +446,11 @@ export default function Categories() {
               >
                 <div className="absolute inset-0 rounded-full border-4 border-(--card-border) bg-(--card-bg) p-4 sm:p-6 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_var(--card-border)] transition-all duration-200 ease-out group-hover/card:translate-x-[4px] group-hover/card:translate-y-[4px] group-hover/card:shadow-[0px_0px_0px_var(--card-border)] group-hover/card:-rotate-3">
                   <h3 className="font-display text-(--card-fg) flex flex-col items-center justify-center uppercase leading-tight w-full px-1 mb-2 sm:mb-3">
-                    <span className="text-sm sm:text-base md:text-lg truncate w-full text-center">
+                    <span className="text-sm sm:text-base md:text-lg w-full text-center">
                       {mainTitle}
                     </span>
                     {subTitle && (
-                      <span className="text-[9px] sm:text-[10px] md:text-[11px] opacity-80 line-clamp-2 mt-0.5">
+                      <span className="text-[9px] sm:text-[10px] md:text-[11px] opacity-80 mt-0.5">
                         {subTitle}
                       </span>
                     )}
