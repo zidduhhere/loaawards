@@ -286,6 +286,16 @@ export default function Categories() {
           individual - may enter subject to meeting the entry criteria.
         </p>
 
+        {/* Verticals Box */}
+        <div className="w-full max-w-5xl text-center px-4">
+          <div className="w-full border-2 border-loa-black rounded bg-white/5 px-6 py-4 md:px-8 md:py-5 shadow-[2px_2px_0px_#0A0A0A] hover:shadow-[4px_4px_0px_#0A0A0A] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all duration-300">
+            <p className="text-white/80 text-sm md:text-base leading-relaxed">
+              <span className="font-bold text-white tracking-widest uppercase mr-2">VERTICALS -</span>
+              FMCG <span className="text-loa-yellow/50 mx-1">|</span> Food & Beverages <span className="text-loa-yellow/50 mx-1">|</span> Jewellery <span className="text-loa-yellow/50 mx-1">|</span> Retail <span className="text-loa-yellow/50 mx-1">|</span> Real Estate <span className="text-loa-yellow/50 mx-1">|</span> Health & Wellness <span className="text-loa-yellow/50 mx-1">|</span> Automobile <span className="text-loa-yellow/50 mx-1">|</span> Tourism <span className="text-loa-yellow/50 mx-1">|</span> Financial services <span className="text-loa-yellow/50 mx-1">|</span> Consumer Durables <span className="text-loa-yellow/50 mx-1">|</span> Media & Entertainment <span className="text-loa-yellow/50 mx-1">|</span> Online Services <span className="text-loa-yellow/50 mx-1">|</span> Telecom <span className="text-loa-yellow/50 mx-1">|</span> Social Cause <span className="text-loa-yellow/50 mx-1">|</span> Others
+            </p>
+          </div>
+        </div>
+
         {/* Buttons */}
         <div className="w-full flex flex-col sm:flex-row gap-4 justify-center items-center mt-2">
           <a

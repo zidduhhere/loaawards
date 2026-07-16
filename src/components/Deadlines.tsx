@@ -131,7 +131,7 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          13{" "}
+          18{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em]">
             /
           </span>{" "}
