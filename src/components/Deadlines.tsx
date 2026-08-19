@@ -148,7 +148,7 @@ export default function Deadlines() {
               lineHeight: 0.88,
             }}
           >
-            FINAL
+            REVISED
           </span>
           <span
             className="font-display block whitespace-nowrap"
@@ -170,7 +170,7 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          17{" "}
+          31{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] ">
             /
           </span>{" "}
