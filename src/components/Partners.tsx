@@ -1,5 +1,3 @@
-import React from "react";
-
 const Partners = () => {
   // Actual partner data
   const communityPartners = [
