@@ -146,7 +146,7 @@ export default function Footer() {
               href="mailto:adclubtrivadrum@gmail.com"
               className="text-black text-sm hover:underline break-all"
             >
-              adclubtrivadrum@gmail.com
+              adclubtrivandrum@gmail.com
             </a>
           </div>
           <div className="flex flex-col gap-1 mt-2">
