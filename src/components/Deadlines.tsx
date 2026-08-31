@@ -170,11 +170,11 @@ export default function Deadlines() {
             lineHeight: 0.88,
           }}
         >
-          31{" "}
+          10{" "}
           <span className="font-body mx-2 md:mx-4 font-light text-[0.8em] ">
             /
           </span>{" "}
-          08
+          09
         </span>
       </div>
 
