@@ -60,7 +60,7 @@ const Partners = () => {
             {communityPartners.map((partner) => (
               <div
                 key={partner.id}
-                className="w-full md:w-1/3 aspect-[4/3] bg-white border-4 border-black shadow-[8px_8px_0_0_#000] flex flex-col items-center justify-center p-8 transition-transform hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
+                className="w-full md:w-1/3 aspect-4/3 bg-white border-4 border-black shadow-[8px_8px_0_0_#000] flex flex-col items-center justify-center p-8 transition-transform hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
               >
                 {/* Partner Logo */}
                 <img
@@ -101,7 +101,7 @@ const Partners = () => {
             {mediaPartners.map((partner) => (
               <div
                 key={partner.id}
-                className="w-full md:w-1/3 aspect-[4/3] bg-white border-4 border-black shadow-[8px_8px_0_0_#000] flex flex-col items-center justify-center p-8 transition-transform hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
+                className="w-full md:w-1/3 aspect-4/3 bg-white border-4 border-black shadow-[8px_8px_0_0_#000] flex flex-col items-center justify-center p-8 transition-transform hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
               >
                 {/* Partner Logo */}
                 <img
