@@ -90,14 +90,18 @@ export default function Deadlines() {
             className="font-display leading-[0.95] uppercase"
             style={{ fontSize: "clamp(2.5rem, 5vw, 6rem)", letterSpacing: "-0.01em" }}
           >
-            <span className="block whitespace-nowrap">
-              <span className="text-loa-purple">LO</span>VE T<span className="text-loa-purple">A</span>KES
-            </span>
+            <span className="block whitespace-nowrap">LOVE TAKES</span>
             <span className="block whitespace-nowrap">CENTER STAGE</span>
           </h2>
-          <div className="flex flex-col gap-2 font-display text-xl md:text-3xl tracking-wide opacity-90">
-            <p><span className="opacity-60 text-sm md:text-lg block mb-1">VENUE :</span> THE LEELA KOVALAM, TRIVANDRUM</p>
-            <p className="mt-4 md:mt-6"><span className="opacity-60 text-sm md:text-lg block mb-1">DATE :</span> 24TH OCTOBER</p>
+          <div className="flex flex-col gap-2 font-display text-xl md:text-3xl tracking-wide text-loa-white">
+            <p>
+              <span className="text-loa-yellow text-sm md:text-lg block mb-1">VENUE :</span>
+              THE LEELA KOVALAM,<br />TRIVANDRUM
+            </p>
+            <p className="mt-4 md:mt-6">
+              <span className="text-loa-yellow text-sm md:text-lg block mb-1">DATE :</span>
+              24TH OCTOBER
+            </p>
           </div>
         </div>
 
