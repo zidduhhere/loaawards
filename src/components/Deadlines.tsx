@@ -80,7 +80,7 @@ export default function Deadlines() {
             alt="LOA Poster LOC"
             loading="lazy"
             decoding="async"
-            className="w-full max-w-[650px] lg:max-w-[750px] h-auto object-cover border-4 border-loa-black shadow-[8px_8px_0px_#0A0A0A] rounded-2xl"
+            className="w-[65%] sm:w-[60%] md:w-full max-w-70 sm:max-w-[320px] md:max-w-162.5 lg:max-w-187.5 h-auto object-cover border-4 border-loa-black shadow-[6px_6px_0px_#0A0A0A] md:shadow-[8px_8px_0px_#0A0A0A] rounded-2xl"
           />
         </div>
         
