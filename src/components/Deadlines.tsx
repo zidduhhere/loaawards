@@ -72,18 +72,8 @@ export default function Deadlines() {
 
       {/* ── Main Content Container ── */}
       <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center gap-10 md:gap-14 relative z-10">
-        
         {/* Title & Badge */}
         <div ref={headerRef} className="flex flex-col items-center">
-          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-loa-black text-loa-yellow font-display text-xs sm:text-sm uppercase tracking-widest border-2 border-loa-black shadow-[4px_4px_0px_#0A0A0A] mb-4 md:mb-6">
-            <img
-              src="https://loa-awards-content-network.b-cdn.net/love-icon-small.svg"
-              alt="Heart"
-              className="w-4 h-4 object-contain inline-block"
-            />
-            <span>THE CEREMONY</span>
-          </div>
-
           <h2
             className="font-display uppercase leading-[0.92] tracking-tight text-center"
             style={{ fontSize: "clamp(2.75rem, 7vw, 7.5rem)" }}
@@ -153,9 +143,7 @@ export default function Deadlines() {
             <span>SUBMISSION GUIDELINES</span>
           </a>
         </div>
-
       </div>
     </section>
   );
 }
-
