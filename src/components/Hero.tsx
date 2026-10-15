@@ -87,9 +87,9 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Mobile Apply Now CTA */}
+        {/* Mobile Finalists CTA */}
         <motion.a
-          href="https://actloa.awardsengine.com/"
+          href="https://loa-awards-content-network.b-cdn.net/finalist-doc.pdf"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -97,7 +97,7 @@ export default function Hero() {
           transition={{ delay: 0.4, type: "spring" }}
           className="mt-10 text-[14px] tracking-widest bg-loa-yellow text-loa-purple font-body font-bold transition-transform hover:scale-105 px-8 py-3 rounded-full shadow-lg text-center z-10"
         >
-          APPLY NOW
+          FINALISTS
         </motion.a>
       </div>
 
