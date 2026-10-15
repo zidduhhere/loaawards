@@ -8,6 +8,7 @@ const Awards = lazy(() => import("./components/Awards"));
 const Categories = lazy(() => import("./components/Categories"));
 const JuryMembers = lazy(() => import("./components/JuryMembers"));
 const Winners = lazy(() => import("./components/Winners"));
+const Partners = lazy(() => import("./components/Partners"));
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Categories />
         <JuryMembers />
         <Winners />
+        <Partners />
         <Footer />
       </Suspense>
     </div>
