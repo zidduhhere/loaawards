@@ -34,9 +34,9 @@ const JURY: JuryMember[] = [
     position: "Founding Member\nTalented",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/SAGAR.webp",
-    name: "Sagar Jadhav",
-    position: "ECD, Ogilvy",
+    src: "https://loa-awards-content-network.b-cdn.net/vihar.jpg",
+    name: "Vihar Vijayanand Patkar",
+    position: "Executive Creative Director\n82.5 Communications",
   },
   {
     src: "https://loa-awards-content-network.b-cdn.net/MITHILA.webp",
