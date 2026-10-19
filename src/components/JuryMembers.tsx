@@ -5,6 +5,7 @@ type JuryMember = {
   name: string;
   position: string;
   imageClassName?: string;
+  bgClassName?: string;
 };
 
 const JURY: JuryMember[] = [
@@ -37,6 +38,8 @@ const JURY: JuryMember[] = [
     src: "https://loa-awards-content-network.b-cdn.net/vihar.png",
     name: "Vihar Vijayanand Patkar",
     position: "Executive Creative Director\n82.5 Communications",
+    imageClassName: "scale-95",
+    bgClassName: "bg-loa-purple",
   },
   {
     src: "https://loa-awards-content-network.b-cdn.net/MITHILA.webp",
@@ -75,7 +78,7 @@ const BG_COLORS = [
 
 function JuryCard({ member, index }: { member: JuryMember; index: number }) {
   const [flipped, setFlipped] = useState(false);
-  const bg = BG_COLORS[index % BG_COLORS.length];
+  const bg = member.bgClassName || BG_COLORS[index % BG_COLORS.length];
   const isYellow = bg === "bg-loa-yellow";
   const nameColor = isYellow ? "text-loa-black" : "text-loa-white";
   const posColor = isYellow ? "text-loa-black" : "text-loa-white";
