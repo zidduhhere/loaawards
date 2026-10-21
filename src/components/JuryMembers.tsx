@@ -35,7 +35,7 @@ const JURY: JuryMember[] = [
     position: "Founding Member\nTalented",
   },
   {
-    src: "https://loa-awards-content-network.b-cdn.net/vihar.webp",
+    src: "https://loa-awards-content-network.b-cdn.net/vihar.",
     name: "Vihar Vijayanand Patkar",
     position: "Executive Creative Director\n82.5 Communications",
     imageClassName: "scale-95",

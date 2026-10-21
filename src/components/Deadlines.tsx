@@ -131,7 +131,7 @@ export default function Deadlines() {
 
           {/* ── Badge / Pass Button ── */}
           <a
-            href="https://actloa.awardsengine.com/"
+            href="https://forms.gle/7TPSFbBCbVJcx71f7"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get Delegate Pass for LOA Awards 2026 Gala Ceremony"
