@@ -181,7 +181,7 @@ export default function Deadlines() {
                   ADMIT ONE
                 </span>
                 <p className="font-display text-sm sm:text-base uppercase text-loa-purple tracking-wider leading-tight">
-                  THE LEELA KOVALAM
+                  THE LEELA RAVIZ KOVALAM
                 </p>
               </div>
             </div>
