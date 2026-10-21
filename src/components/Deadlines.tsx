@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ArrowUpRight, Ticket } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,31 +117,144 @@ export default function Deadlines() {
           </div>
         </div>
 
-        {/* ── Bottom: CTA ── */}
-        <div ref={ctaRef} className="flex flex-col items-center mt-2">
+        {/* ── Bottom: Delegate Pass & CTA ── */}
+        <div ref={ctaRef} className="flex flex-col items-center w-full max-w-2xl mx-auto mt-2">
+          {/* Lanyard Top Attachment */}
+          <div className="flex flex-col items-center -mb-2 z-20 relative select-none pointer-events-none">
+            {/* Lanyard strap tab */}
+            <div className="w-8 h-5 bg-loa-purple border-x-4 border-t-4 border-loa-black rounded-t-sm shadow-sm" />
+            {/* Metal clasp clip */}
+            <div className="w-12 h-3.5 bg-loa-yellow border-2 border-loa-black rounded-sm shadow-sm flex items-center justify-center">
+              <div className="w-4 h-1 bg-loa-black/40 rounded-full" />
+            </div>
+          </div>
+
+          {/* ── Badge / Pass Button ── */}
           <a
-            href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
+            href="https://actloa.awardsengine.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 md:gap-4 font-display tracking-widest text-sm md:text-2xl bg-loa-purple text-loa-yellow border-[3px] md:border-4 border-loa-black shadow-[5px_5px_0px_#0A0A0A] md:shadow-[6px_6px_0px_#0A0A0A] px-6 py-3.5 md:px-10 md:py-5 rounded-xl md:rounded-2xl transition-all duration-200 ease-out hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[0px_0px_0px_#0A0A0A] hover:-rotate-2 uppercase leading-tight group"
+            aria-label="Get Delegate Pass for LOA Awards 2026 Gala Ceremony"
+            className="group relative block w-full bg-loa-yellow text-loa-black border-4 border-loa-black shadow-[6px_6px_0px_#0A0A0A] md:shadow-[10px_10px_0px_#0A0A0A] rounded-2xl md:rounded-3xl p-5 sm:p-7 md:p-8 transition-all duration-300 ease-out hover:-translate-y-2 hover:-rotate-1 hover:shadow-[14px_14px_0px_#0A0A0A] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0px_#0A0A0A] overflow-hidden text-left cursor-pointer"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5 md:w-7 md:h-7 transition-transform group-hover:translate-y-0.5"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            <span>SUBMISSION GUIDELINES</span>
+            {/* Diagonal glint reflection sweep on hover */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-20" />
+
+            {/* Left ticket punch notch */}
+            <div className="absolute -left-4 top-[64%] -translate-y-1/2 w-8 h-8 rounded-full bg-loa-pink border-4 border-loa-black pointer-events-none z-10" />
+
+            {/* Right ticket punch notch */}
+            <div className="absolute -right-4 top-[64%] -translate-y-1/2 w-8 h-8 rounded-full bg-loa-pink border-4 border-loa-black pointer-events-none z-10" />
+
+            {/* Lanyard punch-hole cutout slot */}
+            <div className="w-14 h-2.5 bg-loa-pink border-2 border-loa-black rounded-full mx-auto mb-4 shadow-inner pointer-events-none" />
+
+            {/* Pass Header Row */}
+            <div className="flex items-center justify-between gap-2 border-b-2 border-loa-black/15 pb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-loa-purple text-loa-yellow border-2 border-loa-black text-[11px] sm:text-xs font-display tracking-widest uppercase">
+                <span className="w-2 h-2 rounded-full bg-loa-yellow inline-block" />
+                <span>ALL-ACCESS PASS</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-display tracking-widest text-xs sm:text-sm uppercase text-loa-black font-bold">
+                  LOA '26
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-1 font-body text-[11px] font-bold tracking-widest bg-loa-black text-loa-yellow px-2 py-0.5 rounded-md">
+                  <Ticket className="w-3 h-3" />
+                  <span>VIP DELEGATE</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Main Pass Title & Details */}
+            <div className="my-4 sm:my-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+              <div>
+                <p className="font-body text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-loa-purple">
+                  OFFICIAL EVENT CREDENTIAL
+                </p>
+                <h3 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-loa-black leading-[0.9] mt-1">
+                  DELEGATE PASS
+                </h3>
+              </div>
+              <div className="text-left sm:text-right font-body">
+                <span className="inline-block text-[10px] sm:text-xs uppercase font-bold tracking-widest text-loa-black/70 bg-white/70 px-2 py-0.5 rounded border border-loa-black/20 mb-1">
+                  ADMIT ONE
+                </span>
+                <p className="font-display text-sm sm:text-base uppercase text-loa-purple tracking-wider leading-tight">
+                  THE LEELA KOVALAM
+                </p>
+              </div>
+            </div>
+
+            {/* Perforated Tear Line */}
+            <div className="relative w-full border-t-2 border-dashed border-loa-black/35 my-4 sm:my-5" />
+
+            {/* Bottom Pass Stub: Barcode & Interactive CTA Button */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-1">
+              {/* Barcode & Serial */}
+              <div className="flex items-center gap-3">
+                <div
+                  className="flex items-center gap-[3px] h-9 sm:h-10 opacity-90 py-1"
+                  aria-hidden="true"
+                >
+                  <span className="w-1 h-full bg-loa-black" />
+                  <span className="w-[2px] h-full bg-loa-black" />
+                  <span className="w-1.5 h-full bg-loa-black" />
+                  <span className="w-[1px] h-full bg-loa-black" />
+                  <span className="w-2 h-full bg-loa-black" />
+                  <span className="w-[2px] h-full bg-loa-black" />
+                  <span className="w-1 h-full bg-loa-black" />
+                  <span className="w-3 h-full bg-loa-black" />
+                  <span className="w-[2px] h-full bg-loa-black" />
+                  <span className="w-1.5 h-full bg-loa-black" />
+                  <span className="w-[1px] h-full bg-loa-black" />
+                  <span className="w-2 h-full bg-loa-black" />
+                  <span className="w-1 h-full bg-loa-black" />
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="font-mono text-[10px] sm:text-xs font-bold tracking-widest text-loa-black">
+                    LOA-2026-DEL-PASS
+                  </span>
+                  <span className="font-body text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase text-loa-black/60">
+                    SCAN AT CEREMONY ENTRANCE
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Button Stamp inside Badge */}
+              <div className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-loa-purple text-loa-yellow border-2 sm:border-3 border-loa-black shadow-[4px_4px_0px_#0A0A0A] group-hover:shadow-[2px_2px_0px_#0A0A0A] group-hover:translate-x-[2px] group-hover:translate-y-[2px] px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl font-display tracking-widest text-sm sm:text-base md:text-lg uppercase transition-all duration-200">
+                <span>GET DELEGATE PASS</span>
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </div>
+            </div>
           </a>
+
+          {/* Secondary CTA: Submission Guidelines */}
+          <div className="mt-6 flex items-center justify-center">
+            <a
+              href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 font-display tracking-widest text-xs sm:text-sm bg-loa-purple text-loa-yellow border-2 md:border-[3px] border-loa-black shadow-[4px_4px_0px_#0A0A0A] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[0px_0px_0px_#0A0A0A] hover:-rotate-1 uppercase leading-tight group"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>SUBMISSION GUIDELINES</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
