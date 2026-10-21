@@ -109,7 +109,7 @@ export default function Deadlines() {
               <span>VENUE</span>
             </div>
             <p className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight leading-none text-loa-yellow">
-              THE LEELA KOVALAM
+              THE LEELA RAVIZ, KOVALAM
             </p>
             <p className="font-body text-xs sm:text-sm font-bold tracking-widest uppercase text-loa-white mt-2.5">
               TRIVANDRUM, KERALA
