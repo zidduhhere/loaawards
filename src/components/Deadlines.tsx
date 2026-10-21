@@ -229,32 +229,6 @@ export default function Deadlines() {
             </div>
           </a>
 
-          {/* Secondary CTA: Submission Guidelines */}
-          <div className="mt-6 flex items-center justify-center">
-            <a
-              href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 font-display tracking-widest text-xs sm:text-sm bg-loa-purple text-loa-yellow border-2 md:border-[3px] border-loa-black shadow-[4px_4px_0px_#0A0A0A] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[0px_0px_0px_#0A0A0A] hover:-rotate-1 uppercase leading-tight group"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              <span>SUBMISSION GUIDELINES</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>
