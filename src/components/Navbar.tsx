@@ -5,7 +5,7 @@ const NAV_LINKS: { label: string; id?: string; href?: string; external?: boolean
   { label: "HOME", id: "home" },
   { label: "CATEGORIES", id: "categories" },
   { label: "JURY MEMBERS", id: "jury" },
-  { label: "FINALISTS", href: "https://loa-awards-content-network.b-cdn.net/finalist-doc.pdf", external: true },
+  { label: "AWARDEES", href: "https://loa-awards-content-network.b-cdn.net/loa-awardees.pdf", external: true },
 ];
 
 function smoothScrollTo(targetPosition: number, duration: number) {
