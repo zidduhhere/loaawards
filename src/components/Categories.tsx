@@ -298,7 +298,7 @@ export default function Categories() {
 
         {/* Buttons */}
         <div className="w-full flex flex-col sm:flex-row gap-4 justify-center items-center mt-2">
-          <a
+          {/* <a
             href="https://loa-awards-content-network.b-cdn.net/loa-handbook.pdf"
             download="LOA-Handbook.pdf"
             target="_blank"
@@ -320,7 +320,7 @@ export default function Categories() {
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
             Submission Guidelines
-          </a>
+          </a> */}
           <button
             onClick={() => setIsTermsOpen(true)}
             className="flex items-center gap-3 bg-loa-yellow text-loa-black font-bold uppercase tracking-widest px-6 py-4 rounded border-4 border-loa-black shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 transition-all"
@@ -380,8 +380,8 @@ export default function Categories() {
                       key={f}
                       onClick={() => setActiveFilter(f)}
                       className={`relative shrink-0 rounded px-6 py-3 uppercase tracking-widest text-sm md:text-base font-bold transition-all duration-300 border-4 border-loa-black ${isActive
-                          ? "shadow-[6px_6px_0px_#0A0A0A] -translate-y-1 -translate-x-1 -rotate-2"
-                          : "shadow-[2px_2px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 hover:-rotate-1 opacity-90 hover:opacity-100"
+                        ? "shadow-[6px_6px_0px_#0A0A0A] -translate-y-1 -translate-x-1 -rotate-2"
+                        : "shadow-[2px_2px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-1 hover:-translate-x-1 hover:-rotate-1 opacity-90 hover:opacity-100"
                         }`}
                       style={{
                         fontFamily: "var(--font-display)",
