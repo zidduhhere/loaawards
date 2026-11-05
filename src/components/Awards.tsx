@@ -45,7 +45,7 @@ export default function Awards() {
         </span>
       </h2>
       <p className="pb-16 text-md text-loa-purple text-center max-w-3xl mx-auto font-body leading-relaxed opacity-90 relative z-10 pointer-events-none">
-        Meet the Hearts of LOA Awards - inspired by the CMYK spectrum that brings creative ideas to life, and created to honour work that leaves a lasting mark. Awarded across Cyan, Magenta and Yellow distinctions representing Gold, Silver and Bronze, the Hearts of LOA celebrate ideas that stand apart for their originality, execution and impact. At the highest level stands the Black Heart, reserved for rare brilliance across major honours.
+        Meet the Hearts of LOA Awards - inspired by the CMYK spectrum that brings creative ideas to life, and created to honour work that leaves a lasting mark. Awarded across Yellow, Magenta and Cyan distinctions representing Gold, Silver and Bronze, the Hearts of LOA celebrate ideas that stand apart for their originality, execution and impact. At the highest level stands the Black Heart, reserved for rare brilliance across major honours.
       </p>
 
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-6 md:gap-8 max-w-7xl mx-auto relative z-10">
